@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0864BDBB27765B260085B527 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0864BDBA27765B260085B527 /* CustomButton.swift */; };
+		0890318727781E7C00009A65 /* DisabledVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890318627781E7B00009A65 /* DisabledVC.swift */; };
+		089031892778273000009A65 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089031882778273000009A65 /* HelpVC.swift */; };
 		08BE21D92774FDEA001956CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21D82774FDEA001956CD /* AppDelegate.swift */; };
 		08BE21DB2774FDEA001956CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21DA2774FDEA001956CD /* SceneDelegate.swift */; };
-		08BE21DD2774FDEA001956CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21DC2774FDEA001956CD /* ViewController.swift */; };
+		08BE21DD2774FDEA001956CD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21DC2774FDEA001956CD /* MainVC.swift */; };
 		08BE21E02774FDEA001956CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BE21DE2774FDEA001956CD /* Main.storyboard */; };
 		08BE21E32774FDEA001956CD /* SoundPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21E12774FDEA001956CD /* SoundPad.xcdatamodeld */; };
 		08BE21E52774FDEC001956CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08BE21E42774FDEC001956CD /* Assets.xcassets */; };
@@ -37,10 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0864BDBA27765B260085B527 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		0890318627781E7B00009A65 /* DisabledVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledVC.swift; sourceTree = "<group>"; };
+		089031882778273000009A65 /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
 		08BE21D52774FDEA001956CD /* SoundPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BE21D82774FDEA001956CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08BE21DA2774FDEA001956CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		08BE21DC2774FDEA001956CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08BE21DC2774FDEA001956CD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		08BE21DF2774FDEA001956CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08BE21E22774FDEA001956CD /* SoundPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SoundPad.xcdatamodel; sourceTree = "<group>"; };
 		08BE21E42774FDEC001956CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,11 +84,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0834A7DE277658C90048C501 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0864BDBA27765B260085B527 /* CustomButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0834A7DF277658D40048C501 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				08BE21DC2774FDEA001956CD /* MainVC.swift */,
+				0890318627781E7B00009A65 /* DisabledVC.swift */,
+				089031882778273000009A65 /* HelpVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0834A7E0277658E40048C501 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0834A7E1277658F80048C501 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				08BE21E62774FDEC001956CD /* LaunchScreen.storyboard */,
+				08BE21DE2774FDEA001956CD /* Main.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		08BE21CC2774FDEA001956CD = {
 			isa = PBXGroup;
 			children = (
 				08BE21D72774FDEA001956CD /* SoundPad */,
-				08BE21F12774FDEC001956CD /* SoundPadTests */,
 				08BE21FB2774FDEC001956CD /* SoundPadUITests */,
 				08BE21D62774FDEA001956CD /* Products */,
 			);
@@ -101,14 +140,16 @@
 		08BE21D72774FDEA001956CD /* SoundPad */ = {
 			isa = PBXGroup;
 			children = (
+				0834A7E1277658F80048C501 /* StoryBoards */,
+				0834A7E0277658E40048C501 /* Models */,
+				0834A7DE277658C90048C501 /* Views */,
+				0834A7DF277658D40048C501 /* Controllers */,
 				08BE21D82774FDEA001956CD /* AppDelegate.swift */,
 				08BE21DA2774FDEA001956CD /* SceneDelegate.swift */,
-				08BE21DC2774FDEA001956CD /* ViewController.swift */,
-				08BE21DE2774FDEA001956CD /* Main.storyboard */,
 				08BE21E42774FDEC001956CD /* Assets.xcassets */,
-				08BE21E62774FDEC001956CD /* LaunchScreen.storyboard */,
 				08BE21E92774FDEC001956CD /* Info.plist */,
 				08BE21E12774FDEA001956CD /* SoundPad.xcdatamodeld */,
+				08BE21F12774FDEC001956CD /* SoundPadTests */,
 			);
 			path = SoundPad;
 			sourceTree = "<group>";
@@ -261,10 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08BE21DD2774FDEA001956CD /* ViewController.swift in Sources */,
+				08BE21DD2774FDEA001956CD /* MainVC.swift in Sources */,
+				089031892778273000009A65 /* HelpVC.swift in Sources */,
 				08BE21D92774FDEA001956CD /* AppDelegate.swift in Sources */,
 				08BE21DB2774FDEA001956CD /* SceneDelegate.swift in Sources */,
 				08BE21E32774FDEA001956CD /* SoundPad.xcdatamodeld in Sources */,
+				0890318727781E7C00009A65 /* DisabledVC.swift in Sources */,
+				0864BDBB27765B260085B527 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

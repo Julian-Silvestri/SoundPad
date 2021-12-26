@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jwv-5E-Wkh">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sound Pad-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="Main" customModule="SoundPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="SbO-cl-5u2">
+                                <rect key="frame" x="15" y="64" width="288.5" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soundPadIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xz4-l0-zmg">
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="G5d-Jr-5jp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv7-UU-h0o">
+                                        <rect key="frame" x="154" y="0.0" width="134.5" height="60"/>
+                                        <color key="backgroundColor" red="0.38572794199999999" green="0.55534833669999994" blue="0.2985276878" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Help">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="helpBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wbd-Dx-e7D"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" spacing="98"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4XJ-DD-GzX">
+                                <rect key="frame" x="16" y="140" width="288" height="325"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WIN-Mj-2lp">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="50.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqB-OQ-al3" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K1g-Of-haB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IM-hj-DaT" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="72.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="086-1k-vMB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg1-Es-oiu" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UAZ-gU-eeV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN2-Vh-CNg" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="217.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mye-St-Srp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="b4h-if-yE6">
+                                        <rect key="frame" x="0.0" y="68.5" width="288" height="50.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ2-m0-4fH" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUm-Ox-PBa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebh-fV-U3h" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="72.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eWk-bq-054"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acq-3i-NcH" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="75Q-wY-thS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOj-l1-Mjo" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="217.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aAK-T9-SYP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bHg-5c-Lh5">
+                                        <rect key="frame" x="0.0" y="137" width="288" height="51"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvH-7T-duR" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="51"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pqa-2S-cMM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yr-YH-A0z" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="72.5" y="0.0" width="70.5" height="51"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lf0-Zy-YG9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ss-Zu-DsD" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="0.0" width="70.5" height="51"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Za-TJ-doC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2m-ab-phQ" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="217.5" y="0.0" width="70.5" height="51"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enI-5l-MCp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SH0-0B-krS">
+                                        <rect key="frame" x="0.0" y="206" width="288" height="50.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u61-G4-v0T" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zSu-qo-BwZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uim-cy-QBw" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="72.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zs3-Xz-d4s"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nJ-ic-B0Y" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcZ-hB-5Dn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-yj-Xww" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="217.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9NR-GT-HN8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ET7-HP-h9n">
+                                        <rect key="frame" x="0.0" y="274.5" width="288" height="50.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-gl-IJL" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CeU-sl-jZb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEN-J3-6XP" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="72.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIb-PV-EmK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDt-xp-5OM" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oEI-Cr-EUP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeX-0m-eAs" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="217.5" y="0.0" width="70.5" height="50.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jb8-x5-epo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-21-QZq">
+                                <rect key="frame" x="15" y="132" width="289" height="340"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LB-fY-Px9">
+                                        <rect key="frame" x="44" y="8" width="201" height="60.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="44"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3LB-fY-Px9" secondAttribute="trailing" constant="44" id="CMm-XP-UI6"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="44" id="W7v-bb-mSP"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="top" secondItem="XRm-21-QZq" secondAttribute="top" constant="8" id="ytZ-S0-rAV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4XJ-DD-GzX" secondAttribute="trailing" constant="16" id="1ZV-7t-Eov"/>
+                            <constraint firstItem="SbO-cl-5u2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="3G7-NG-dyk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SbO-cl-5u2" secondAttribute="trailing" constant="16.5" id="3f6-Lx-VOO"/>
+                            <constraint firstItem="4XJ-DD-GzX" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="8" id="89Z-fT-iEb"/>
+                            <constraint firstItem="4XJ-DD-GzX" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="16" id="9Oz-mB-egX"/>
+                            <constraint firstItem="SbO-cl-5u2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="BdJ-2q-mRM"/>
+                            <constraint firstItem="XRm-21-QZq" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="8" id="Ogt-Sv-Sin"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XRm-21-QZq" secondAttribute="bottom" constant="8" id="PES-d1-91u"/>
+                            <constraint firstItem="XRm-21-QZq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="aEc-ax-W6H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XRm-21-QZq" secondAttribute="trailing" constant="16" id="cpe-4o-13m"/>
+                            <constraint firstItem="4XJ-DD-GzX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iLd-4Q-njE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4XJ-DD-GzX" secondAttribute="trailing" constant="16" id="pdW-z9-DXX"/>
+                            <constraint firstAttribute="trailing" secondItem="SbO-cl-5u2" secondAttribute="trailing" constant="15" id="uxs-9W-J2O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4XJ-DD-GzX" secondAttribute="bottom" constant="15" id="z2w-OO-XZQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1ZV-7t-Eov"/>
+                                <exclude reference="uxs-9W-J2O"/>
+                                <exclude reference="89Z-fT-iEb"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="1ZV-7t-Eov"/>
+                                <exclude reference="3f6-Lx-VOO"/>
+                                <exclude reference="pdW-z9-DXX"/>
+                                <include reference="uxs-9W-J2O"/>
+                                <include reference="89Z-fT-iEb"/>
+                                <exclude reference="9Oz-mB-egX"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sound Pad" id="udL-mo-eAN">
+                        <barButtonItem key="backBarButtonItem" title=" " id="7D6-qb-Gbq"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btn1" destination="BqB-OQ-al3" id="FQd-I6-bHD"/>
+                        <outlet property="btn10" destination="9yr-YH-A0z" id="PHu-bf-VYv"/>
+                        <outlet property="btn11" destination="4Ss-Zu-DsD" id="Q6v-4S-4qO"/>
+                        <outlet property="btn12" destination="o2m-ab-phQ" id="vEf-3m-XNi"/>
+                        <outlet property="btn13" destination="u61-G4-v0T" id="6HC-Lj-9hs"/>
+                        <outlet property="btn14" destination="uim-cy-QBw" id="lkp-eO-Y27"/>
+                        <outlet property="btn15" destination="1nJ-ic-B0Y" id="4zv-NC-pFM"/>
+                        <outlet property="btn16" destination="Oca-yj-Xww" id="gx2-ju-PFa"/>
+                        <outlet property="btn2" destination="0IM-hj-DaT" id="NNv-lb-0qC"/>
+                        <outlet property="btn3" destination="rg1-Es-oiu" id="oEe-ON-gMa"/>
+                        <outlet property="btn4" destination="vN2-Vh-CNg" id="9re-C8-Sg6"/>
+                        <outlet property="btn5" destination="FJ2-m0-4fH" id="n5q-sT-3YN"/>
+                        <outlet property="btn6" destination="ebh-fV-U3h" id="UTh-BH-CCe"/>
+                        <outlet property="btn7" destination="acq-3i-NcH" id="WC6-1j-3cc"/>
+                        <outlet property="btn8" destination="SOj-l1-Mjo" id="qoi-mp-oUc"/>
+                        <outlet property="btn9" destination="rvH-7T-duR" id="WqQ-Uo-NVd"/>
+                        <outlet property="countDownLbl" destination="3LB-fY-Px9" id="nUz-H5-woY"/>
+                        <outlet property="headerStackView" destination="SbO-cl-5u2" id="QhD-Bs-bJm"/>
+                        <outlet property="helpBtn" destination="jv7-UU-h0o" id="RWt-he-x6v"/>
+                        <outlet property="innerStack1" destination="WIN-Mj-2lp" id="H0X-JN-GEq"/>
+                        <outlet property="innerStack2" destination="b4h-if-yE6" id="hNj-I3-Vbq"/>
+                        <outlet property="innerStack3" destination="bHg-5c-Lh5" id="Kbz-je-JOD"/>
+                        <outlet property="innerStack4" destination="SH0-0B-krS" id="FPv-6c-2bA"/>
+                        <outlet property="innerStack5" destination="ET7-HP-h9n" id="zdd-8D-mno"/>
+                        <outlet property="outerStack" destination="4XJ-DD-GzX" id="xuN-NY-XgI"/>
+                        <segue destination="UDT-xY-zVB" kind="show" identifier="disabled" id="vEj-Ng-vnz"/>
+                        <segue destination="NYk-uY-eiB" kind="show" identifier="help" id="cwQ-qm-Krb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136.25" y="136.25"/>
+        </scene>
+        <!--HelpVC-->
+        <scene sceneID="77U-Fz-7AN">
+            <objects>
+                <viewController id="NYk-uY-eiB" customClass="HelpVC" customModule="SoundPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WuJ-4s-nig">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nAk-Ir-a3o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U41-JU-0eS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4o-Bs-4IG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2186" y="-591"/>
+        </scene>
+        <!--DisabledVC-->
+        <scene sceneID="TqJ-mn-bsA">
+            <objects>
+                <viewController id="UDT-xY-zVB" customClass="DisabledVC" customModule="SoundPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WcF-UJ-avQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L9-jS-ahJ">
+                                <rect key="frame" x="16" y="44" width="288" height="416"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Cob-GG-pnw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cob-GG-pnw" firstAttribute="bottom" secondItem="2L9-jS-ahJ" secondAttribute="bottom" constant="20" id="9YE-IU-VhG"/>
+                            <constraint firstItem="2L9-jS-ahJ" firstAttribute="leading" secondItem="Cob-GG-pnw" secondAttribute="leading" constant="16" id="R8d-OT-Xib"/>
+                            <constraint firstItem="2L9-jS-ahJ" firstAttribute="top" secondItem="Cob-GG-pnw" secondAttribute="top" id="V35-tE-EFT"/>
+                            <constraint firstItem="Cob-GG-pnw" firstAttribute="trailing" secondItem="2L9-jS-ahJ" secondAttribute="trailing" constant="16" id="ki7-Ti-xHX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xnz-9u-x3U"/>
+                    <connections>
+                        <outlet property="disabledText" destination="2L9-jS-ahJ" id="CgJ-Ig-BMO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNF-9e-Edn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2184" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8dF-3G-s2U">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jwv-5E-Wkh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="odR-zF-2R1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Sdp-9t-wtM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvt-w5-fs5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.75" y="136.25"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="0IM-hj-DaT">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="1nJ-ic-B0Y">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="4Ss-Zu-DsD">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="9yr-YH-A0z">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="BqB-OQ-al3">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="FJ2-m0-4fH">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="HeX-0m-eAs">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="Oca-yj-Xww">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="SOj-l1-Mjo">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="acq-3i-NcH">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="ebh-fV-U3h">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="jEN-J3-6XP">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="o2m-ab-phQ">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="qDt-xp-5OM">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="rg1-Es-oiu">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="rvH-7T-duR">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="u61-G4-v0T">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="uim-cy-QBw">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="uoh-gl-IJL">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+        <designable name="vN2-Vh-CNg">
+            <size key="intrinsicContentSize" width="70" height="31"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="soundPadIcon" width="1022" height="650"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
