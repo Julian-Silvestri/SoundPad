@@ -230,38 +230,83 @@
                                 </subviews>
                             </stackView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-21-QZq">
-                                <rect key="frame" x="15" y="132" width="289" height="340"/>
+                                <rect key="frame" x="15" y="132" width="290" height="340"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LB-fY-Px9">
-                                        <rect key="frame" x="44" y="8" width="201" height="60.5"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEP-ed-ifT">
+                                        <rect key="frame" x="8" y="273" width="274" height="67"/>
+                                        <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="67" id="97Z-nJ-Euc"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Stop Recording"/>
+                                        <connections>
+                                            <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iif-8a-DwY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="3LB-fY-Px9">
+                                        <rect key="frame" x="4" y="77" width="282" height="98.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="72"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="3LB-fY-Px9" secondAttribute="trailing" constant="44" id="CMm-XP-UI6"/>
-                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="44" id="W7v-bb-mSP"/>
-                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="top" secondItem="XRm-21-QZq" secondAttribute="top" constant="8" id="ytZ-S0-rAV"/>
+                                    <constraint firstAttribute="bottom" secondItem="qEP-ed-ifT" secondAttribute="bottom" id="1BV-bz-5Qf"/>
+                                    <constraint firstAttribute="bottom" secondItem="qEP-ed-ifT" secondAttribute="bottom" id="4FX-va-io5"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="8" id="6cM-5Q-QTB"/>
+                                    <constraint firstAttribute="trailing" secondItem="3LB-fY-Px9" secondAttribute="trailing" constant="8" id="Bn1-EL-qIx"/>
+                                    <constraint firstAttribute="trailing" secondItem="3LB-fY-Px9" secondAttribute="trailing" constant="4" id="H5P-gW-XBa"/>
+                                    <constraint firstItem="qEP-ed-ifT" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="8" id="MLv-c3-bSU"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="top" secondItem="XRm-21-QZq" secondAttribute="top" constant="77" id="V9f-SB-kQP"/>
+                                    <constraint firstItem="qEP-ed-ifT" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="81" id="W3V-2q-znJ"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="top" secondItem="XRm-21-QZq" secondAttribute="top" constant="8" id="Wrw-Zm-tFQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="qEP-ed-ifT" secondAttribute="trailing" constant="81" id="aPi-Cf-dTk"/>
+                                    <constraint firstAttribute="trailing" secondItem="qEP-ed-ifT" secondAttribute="trailing" constant="8" id="hA1-tQ-fVg"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="4" id="n6W-zP-jtT"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6cM-5Q-QTB"/>
+                                        <exclude reference="Bn1-EL-qIx"/>
+                                        <exclude reference="Wrw-Zm-tFQ"/>
+                                        <exclude reference="W3V-2q-znJ"/>
+                                        <exclude reference="aPi-Cf-dTk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6cM-5Q-QTB"/>
+                                        <include reference="Bn1-EL-qIx"/>
+                                        <exclude reference="H5P-gW-XBa"/>
+                                        <exclude reference="V9f-SB-kQP"/>
+                                        <include reference="Wrw-Zm-tFQ"/>
+                                        <exclude reference="n6W-zP-jtT"/>
+                                        <exclude reference="MLv-c3-bSU"/>
+                                        <include reference="W3V-2q-znJ"/>
+                                        <include reference="aPi-Cf-dTk"/>
+                                        <exclude reference="hA1-tQ-fVg"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XRm-21-QZq" secondAttribute="bottom" constant="8" id="08A-oN-LOx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4XJ-DD-GzX" secondAttribute="trailing" constant="16" id="1ZV-7t-Eov"/>
                             <constraint firstItem="SbO-cl-5u2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="3G7-NG-dyk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SbO-cl-5u2" secondAttribute="trailing" constant="16.5" id="3f6-Lx-VOO"/>
                             <constraint firstItem="4XJ-DD-GzX" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="8" id="89Z-fT-iEb"/>
                             <constraint firstItem="4XJ-DD-GzX" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="16" id="9Oz-mB-egX"/>
                             <constraint firstItem="SbO-cl-5u2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="BdJ-2q-mRM"/>
-                            <constraint firstItem="XRm-21-QZq" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="8" id="Ogt-Sv-Sin"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XRm-21-QZq" secondAttribute="bottom" constant="8" id="PES-d1-91u"/>
-                            <constraint firstItem="XRm-21-QZq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="aEc-ax-W6H"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XRm-21-QZq" secondAttribute="trailing" constant="16" id="cpe-4o-13m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XRm-21-QZq" secondAttribute="trailing" constant="15" id="Jjg-Va-wKH"/>
+                            <constraint firstItem="XRm-21-QZq" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="8" id="gOh-Rf-992"/>
                             <constraint firstItem="4XJ-DD-GzX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iLd-4Q-njE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4XJ-DD-GzX" secondAttribute="trailing" constant="16" id="pdW-z9-DXX"/>
+                            <constraint firstItem="XRm-21-QZq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="uCp-hu-zEa"/>
                             <constraint firstAttribute="trailing" secondItem="SbO-cl-5u2" secondAttribute="trailing" constant="15" id="uxs-9W-J2O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4XJ-DD-GzX" secondAttribute="bottom" constant="15" id="z2w-OO-XZQ"/>
                         </constraints>
@@ -278,6 +323,7 @@
                                 <exclude reference="3f6-Lx-VOO"/>
                                 <exclude reference="pdW-z9-DXX"/>
                                 <include reference="uxs-9W-J2O"/>
+                                <include reference="gOh-Rf-992"/>
                                 <include reference="89Z-fT-iEb"/>
                                 <exclude reference="9Oz-mB-egX"/>
                             </mask>
@@ -312,13 +358,15 @@
                         <outlet property="innerStack4" destination="SH0-0B-krS" id="FPv-6c-2bA"/>
                         <outlet property="innerStack5" destination="ET7-HP-h9n" id="zdd-8D-mno"/>
                         <outlet property="outerStack" destination="4XJ-DD-GzX" id="xuN-NY-XgI"/>
+                        <outlet property="recordingView" destination="XRm-21-QZq" id="7li-zm-1Qg"/>
+                        <outlet property="stopRecordingBtn" destination="qEP-ed-ifT" id="zcT-5J-fPn"/>
                         <segue destination="UDT-xY-zVB" kind="show" identifier="disabled" id="vEj-Ng-vnz"/>
                         <segue destination="NYk-uY-eiB" kind="show" identifier="help" id="cwQ-qm-Krb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.25" y="136.25"/>
+            <point key="canvasLocation" x="1136.25" y="135"/>
         </scene>
         <!--HelpVC-->
         <scene sceneID="77U-Fz-7AN">

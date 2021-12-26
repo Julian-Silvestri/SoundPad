@@ -45,6 +45,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     @IBOutlet weak var innerStack5: UIStackView!
     
     
+    @IBOutlet weak var stopRecordingBtn: UIButton!
+    @IBOutlet weak var recordingView: UIView!
     @IBOutlet weak var countDownLbl: UILabel!
     @IBOutlet weak var helpBtn: UIButton!
     
@@ -78,9 +80,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         super.viewWillAppear(animated)
         checkRecordingPrivleges()
     }
-     
-    //MARK: play your recorded audio
-    @IBAction func playAudio(sender: UIButton) {
+
+    func playAudio(sender: UIButton) {
         print("trying to play audio")
 
         if self.audioRecorder == nil {
@@ -163,7 +164,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         }
     }
     
-    @IBAction func stopRecording(_ sender: Any) {
+    @IBAction func stopRecording(_ sender: UIButton) {
         
         if audioRecorder == nil {
             //already stopped
@@ -172,6 +173,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             print("Stopping recording")
             audioRecorder.stop()
             audioRecorder = nil
+            recordingViewTearDown()
         }
 
     }
@@ -183,47 +185,66 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     //MARK: Start Recording
     @IBAction func startRecording(_ sender: UIButton) {
         
-        if self.audioRecorder == nil {
 
-            UIView.animate(withDuration: 0.4, animations: {
-                self.countDownLbl.alpha = 1
-            }, completion: {_ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        if sender.backgroundColor == UIColor.green {
+            playAudio()
+        }
+        
+        
+        
+        if self.audioRecorder == nil {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.recordingView.alpha = 1
+            }, completion: { _ in
+                
+                DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
                     self.countDownLbl.text = "3"
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                         self.countDownLbl.text = "2"
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                             self.countDownLbl.text = "1"
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                                self.countDownLbl.text = "Recording"
+
+                                self.recordingViewSetup()
+                                
+                                let audioFilename = self.getDocumentsDirectory().appendingPathComponent("recording\(sender.tag).m4a")
+                                
+                                let settings = [
+                                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                                    AVSampleRateKey: 12000,
+                                    AVNumberOfChannelsKey: 1,
+                                    AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+                                ]
+                                
+                                self.audioRecorder = AVAudioRecorder()
+
+                                do {
+                                    self.audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+                                    self.audioRecorder.delegate = self
+                                    print("recording now....")
+                                    self.audioRecorder.prepareToRecord()
+                                    self.audioRecorder.record()
+                                    
+                                    sender.backgroundColor = UIColor.green
+                                    sender.setTitle("Play", for: .normal)
+                                    sender.setTitleColor(UIColor.white, for: .normal)
+                                    
+                                } catch {
+                                    self.finishRecording(success: false)
+                                }
                             })
+                            
+
+                            
                         })
                     })
-                }
-                
+                })
             })
             
-            
-            let audioFilename = self.getDocumentsDirectory().appendingPathComponent("recording\(sender.tag).m4a")
-            
-            let settings = [
-                AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                AVSampleRateKey: 12000,
-                AVNumberOfChannelsKey: 1,
-                AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-            ]
-            
-            self.audioRecorder = AVAudioRecorder()
 
-            do {
-                self.audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-                self.audioRecorder.delegate = self
-                print("recording now....")
-                self.audioRecorder.prepareToRecord()
-                self.audioRecorder.record()
-            } catch {
-                self.finishRecording(success: false)
-            }
+            
+
+
             
         } else {
             print("ERROR -> Had to stop recording (startRecording, ibaciton)")
@@ -331,6 +352,21 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             // failed to record!
             print("error recording")
         }
+    }
+    func recordingViewSetup(){
+        self.countDownLbl.textColor = .white
+        self.countDownLbl.text = "Recording"
+        self.recordingView.alpha = 0.9
+        self.recordingView.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+        self.recordingView.layer.cornerRadius = 15
+    }
+    
+    func recordingViewTearDown(){
+        self.countDownLbl.textColor = .black
+        self.countDownLbl.text = "..."
+        self.recordingView.alpha = 0
+        self.recordingView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
     }
     
     @IBAction func helpBtnAction(_ sender: Any) {
