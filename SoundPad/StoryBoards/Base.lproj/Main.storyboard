@@ -323,9 +323,9 @@
                                 <exclude reference="3f6-Lx-VOO"/>
                                 <exclude reference="pdW-z9-DXX"/>
                                 <include reference="uxs-9W-J2O"/>
-                                <include reference="gOh-Rf-992"/>
                                 <include reference="89Z-fT-iEb"/>
                                 <exclude reference="9Oz-mB-egX"/>
+                                <include reference="gOh-Rf-992"/>
                             </mask>
                         </variation>
                     </view>
@@ -341,7 +341,11 @@
                         <outlet property="btn14" destination="uim-cy-QBw" id="lkp-eO-Y27"/>
                         <outlet property="btn15" destination="1nJ-ic-B0Y" id="4zv-NC-pFM"/>
                         <outlet property="btn16" destination="Oca-yj-Xww" id="gx2-ju-PFa"/>
+                        <outlet property="btn17" destination="uoh-gl-IJL" id="9zz-GG-yxw"/>
+                        <outlet property="btn18" destination="jEN-J3-6XP" id="ETM-ly-gCO"/>
+                        <outlet property="btn19" destination="qDt-xp-5OM" id="Aef-kW-aeI"/>
                         <outlet property="btn2" destination="0IM-hj-DaT" id="NNv-lb-0qC"/>
+                        <outlet property="btn20" destination="HeX-0m-eAs" id="zyh-EV-7y8"/>
                         <outlet property="btn3" destination="rg1-Es-oiu" id="oEe-ON-gMa"/>
                         <outlet property="btn4" destination="vN2-Vh-CNg" id="9re-C8-Sg6"/>
                         <outlet property="btn5" destination="FJ2-m0-4fH" id="n5q-sT-3YN"/>
