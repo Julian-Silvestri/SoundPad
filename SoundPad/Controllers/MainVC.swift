@@ -53,7 +53,23 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     //Vars
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
-    var audioPlayer: AVAudioPlayer? = nil
+    var audioPlayer1: AVAudioPlayer? = nil
+    var audioPlayer2: AVAudioPlayer? = nil
+    var audioPlayer3: AVAudioPlayer? = nil
+    var audioPlayer4: AVAudioPlayer? = nil
+    var audioPlayer5: AVAudioPlayer? = nil
+    var audioPlayer6: AVAudioPlayer? = nil
+    var audioPlayer7: AVAudioPlayer? = nil
+    var audioPlayer8: AVAudioPlayer? = nil
+    var audioPlayer9: AVAudioPlayer? = nil
+    var audioPlayer10: AVAudioPlayer? = nil
+    var audioPlayer11: AVAudioPlayer? = nil
+    var audioPlayer12: AVAudioPlayer? = nil
+    var audioPlayer13: AVAudioPlayer? = nil
+    var audioPlayer14: AVAudioPlayer? = nil
+    var audioPlayer15: AVAudioPlayer? = nil
+    var audioPlayer16: AVAudioPlayer? = nil
+
     var loadedImg: URL? = nil
     
     override func viewDidLoad() {
@@ -82,28 +98,62 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     }
 
     func playAudio(sender: UIButton) {
-        print("trying to play audio")
-
-        if self.audioRecorder == nil {
+        
+        
+        
+        switch sender.tag {
+        case 1:
+            print("trying to play audio 1")
+            if self.audioRecorder == nil {
+                
+                let audioFileUrl = getAudioRecorded(audioNameWithExtension: "recording\(sender.tag).mp4")
+                
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    audioPlayer1 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.mp4.rawValue)
+                    audioPlayer1?.delegate = self
+                    audioPlayer11?.volume = 4.0
+                    audioPlayer1?.prepareToPlay()
+                    audioPlayer1?.play()
+                    print("PLAYING::::: \(audioFileUrl)")
+               } catch let error {
+                    print(error.localizedDescription)
+               }
+                
+            } else{
+                print("cant play audio, recorder is running")
+            }
+        case 2:
+            print("trying to play audio 2")
+            if self.audioRecorder == nil {
+                
+                let audioFileUrl = getAudioRecorded(audioNameWithExtension: "recording\(sender.tag).mp4")
+                
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    audioPlayer2 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.mp4.rawValue)
+                    audioPlayer2?.delegate = self
+                    audioPlayer2?.volume = 4.0
+                    audioPlayer2?.prepareToPlay()
+                    audioPlayer2?.play()
+                    print("PLAYING::::: \(audioFileUrl)")
+               } catch let error {
+                    print(error.localizedDescription)
+               }
+                
+            } else{
+                print("cant play audio, recorder is running")
+            }
+        default:
+            print("ERRRRRRRRRR")
             
-            let audioFileUrl = getAudioRecorded(audioNameWithExtension: "recording\(sender.tag).m4a")
             
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-                try AVAudioSession.sharedInstance().setActive(true)
-                audioPlayer = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.mp3.rawValue)
-                audioPlayer?.delegate = self
-                audioPlayer?.volume = 4.0
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-                print("PLAYING::::: \(audioFileUrl)")
-           } catch let error {
-                print(error.localizedDescription)
-           }
-            
-        } else{
-            print("cant play audio, recorder is running")
         }
+        
+
+
     }
 
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -111,28 +161,28 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         //stopBtn.isEnabled = false
     }
 
-    @IBAction func testSave(_ sender: UIButton) {
-        
-        print("tring to save")
-        
-        let fileManager = FileManager.default
-        do {
-            //let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:true)
-            let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = paths.appendingPathComponent("png")
-            let image = #imageLiteral(resourceName: "looperLogo")
-            print("almost there")
-            if let imageData = image.pngData() {
-                try imageData.write(to: fileURL)
-                print("saved image \(fileURL)")
-                self.loadedImg = fileURL
-                return
-            }
-        } catch {
-            print(error)
-        }
-        
-    }
+//    @IBAction func testSave(_ sender: UIButton) {
+//
+//        print("tring to save")
+//
+//        let fileManager = FileManager.default
+//        do {
+//            //let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:true)
+//            let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//            let fileURL = paths.appendingPathComponent("png")
+//            let image = #imageLiteral(resourceName: "looperLogo")
+//            print("almost there")
+//            if let imageData = image.pngData() {
+//                try imageData.write(to: fileURL)
+//                print("saved image \(fileURL)")
+//                self.loadedImg = fileURL
+//                return
+//            }
+//        } catch {
+//            print(error)
+//        }
+//
+//    }
     private func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer!, error: NSError!) {
         print("Audio Play Decode Error")
     }
@@ -187,70 +237,61 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         
 
         if sender.backgroundColor == UIColor.green {
-            playAudio()
-        }
-        
-        
-        
-        if self.audioRecorder == nil {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.recordingView.alpha = 1
-            }, completion: { _ in
-                
-                DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
-                    self.countDownLbl.text = "3"
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                        self.countDownLbl.text = "2"
+            playAudio(sender: sender)
+        } else {
+            if self.audioRecorder == nil {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.recordingView.alpha = 1
+                }, completion: { _ in
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                        self.countDownLbl.text = "3"
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                            self.countDownLbl.text = "1"
+                            self.countDownLbl.text = "2"
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                                self.countDownLbl.text = "1"
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
 
-                                self.recordingViewSetup()
-                                
-                                let audioFilename = self.getDocumentsDirectory().appendingPathComponent("recording\(sender.tag).m4a")
-                                
-                                let settings = [
-                                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                                    AVSampleRateKey: 12000,
-                                    AVNumberOfChannelsKey: 1,
-                                    AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-                                ]
-                                
-                                self.audioRecorder = AVAudioRecorder()
+                                    self.recordingViewSetup()
+                                    print("should be recordign")
+                                    let audioFilename = self.getDocumentsDirectory().appendingPathComponent("recording\(sender.tag).mp4")
+                                    
+                                    let settings = [
+                                        AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                                        AVSampleRateKey: 12000,
+                                        AVNumberOfChannelsKey: 1,
+                                        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+                                    ]
+                                    
+                                    self.audioRecorder = AVAudioRecorder()
 
-                                do {
-                                    self.audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-                                    self.audioRecorder.delegate = self
-                                    print("recording now....")
-                                    self.audioRecorder.prepareToRecord()
-                                    self.audioRecorder.record()
-                                    
-                                    sender.backgroundColor = UIColor.green
-                                    sender.setTitle("Play", for: .normal)
-                                    sender.setTitleColor(UIColor.white, for: .normal)
-                                    
-                                } catch {
-                                    self.finishRecording(success: false)
-                                }
+                                    do {
+                                        self.audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+                                        self.audioRecorder.delegate = self
+                                        print("recording now....")
+                                        self.audioRecorder.prepareToRecord()
+                                        self.audioRecorder.record()
+                                        
+                                        sender.backgroundColor = UIColor.green
+                                        sender.setTitle("Play", for: .normal)
+                                        sender.setTitleColor(UIColor.white, for: .normal)
+                                        
+                                    } catch {
+                                        self.finishRecording(success: false)
+                                    }
+                                })
+                                
+
+                                
                             })
-                            
-
-                            
                         })
                     })
                 })
-            })
-            
-
-            
-
-
-            
-        } else {
-            print("ERROR -> Had to stop recording (startRecording, ibaciton)")
-            self.finishRecording(success: true)
+            } else {
+                print("ERROR -> Had to stop recording (startRecording, ibaciton)")
+                self.finishRecording(success: true)
+            }
         }
-
     }
     
     func removeAudioFile(fileNameWithExtension: String, completionHandler: @escaping(Bool)->Void){
@@ -317,7 +358,23 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 //    }
     
     func loadApplication() {
-        self.audioPlayer = AVAudioPlayer()
+        self.audioPlayer1 = AVAudioPlayer()
+        self.audioPlayer2 = AVAudioPlayer()
+        self.audioPlayer3 = AVAudioPlayer()
+        self.audioPlayer4 = AVAudioPlayer()
+        self.audioPlayer5 = AVAudioPlayer()
+        self.audioPlayer6 = AVAudioPlayer()
+        self.audioPlayer7 = AVAudioPlayer()
+        self.audioPlayer8 = AVAudioPlayer()
+        self.audioPlayer9 = AVAudioPlayer()
+        self.audioPlayer10 = AVAudioPlayer()
+        self.audioPlayer11 = AVAudioPlayer()
+        self.audioPlayer12 = AVAudioPlayer()
+        self.audioPlayer13 = AVAudioPlayer()
+        self.audioPlayer14 = AVAudioPlayer()
+        self.audioPlayer15 = AVAudioPlayer()
+        self.audioPlayer16
+        = AVAudioPlayer()
         self.audioRecorder = AVAudioRecorder()
         overrideUserInterfaceStyle = .light
         self.recordingSession = AVAudioSession.sharedInstance()
