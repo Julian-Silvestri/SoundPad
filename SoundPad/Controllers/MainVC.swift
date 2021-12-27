@@ -7,9 +7,11 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
+    @IBOutlet weak var coreDataBtn: UIButton!
     //CUSTOM BTNS
     @IBOutlet weak var btn1: CustomButton!
     @IBOutlet weak var btn2: CustomButton!
@@ -55,31 +57,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     @IBOutlet weak var helpBtn: UIButton!
     
     //Vars
+    
+    var audioFileUrl:URL = URL(fileURLWithPath: " ")
+    
     var recordingSession: AVAudioSession!
     
     var audioRecorder1: AVAudioRecorder!
-    var audioRecorder2: AVAudioRecorder!
-    var audioRecorder3: AVAudioRecorder!
-    var audioRecorder4: AVAudioRecorder!
-    var audioRecorder5: AVAudioRecorder!
-    var audioRecorder6: AVAudioRecorder!
-    var audioRecorder7: AVAudioRecorder!
-    var audioRecorder8: AVAudioRecorder!
-    var audioRecorder9: AVAudioRecorder!
-    var audioRecorder10: AVAudioRecorder!
-    var audioRecorder11: AVAudioRecorder!
-    var audioRecorder12: AVAudioRecorder!
-    var audioRecorder13: AVAudioRecorder!
-    var audioRecorder14: AVAudioRecorder!
-    var audioRecorder15: AVAudioRecorder!
-    var audioRecorder16: AVAudioRecorder!
-    var audioRecorder17: AVAudioRecorder!
-    var audioRecorder18: AVAudioRecorder!
-    var audioRecorder19: AVAudioRecorder!
-    var audioRecorder20: AVAudioRecorder!
-    
-    
-    
     
     var audioPlayer1: AVAudioPlayer? = nil
     var audioPlayer2: AVAudioPlayer? = nil
@@ -102,12 +85,17 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     var audioPlayer19: AVAudioPlayer? = nil
     var audioPlayer20: AVAudioPlayer? = nil
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
+    var coreDataSounds: [Sounds]?
 
     var loadedImg: URL? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadApplication()
+//        loadRecordings()
 //        setupDisplay()
         btn1.tag = 1
         btn2.tag = 2
@@ -137,9 +125,30 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         checkRecordingPrivleges()
     }
 
+    @IBAction func playCoreDataAudio(_ sender: Any) {
+
+        print("RECORDING FOUND IN CORE DATA \(self.audioFileUrl)")
+        loadRecordings()
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer1 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
+            audioPlayer1?.delegate = self
+            audioPlayer1?.volume = 4.0
+            audioPlayer1?.prepareToPlay()
+            audioPlayer1?.play()
+            print("PLAYING::::: \(audioFileUrl)")
+       } catch let error {
+            print(error.localizedDescription)
+       }
+    }
+
+    
     func playAudio(sender: UIButton) {
-        let audioFileUrl = getAudioRecorded(sender: sender, audioNameWithExtension: "recording\(sender.tag).m4a")
         
+        
+        self.audioFileUrl = getAudioRecorded(sender: sender, audioNameWithExtension: "recording\(sender.tag).m4a")
         stopAllPlayers()
         
         if self.audioRecorder1 == nil {
@@ -151,6 +160,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer1 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
+                    
+                    
                     audioPlayer1?.delegate = self
                     audioPlayer1?.volume = 4.0
                     audioPlayer1?.prepareToPlay()
@@ -463,16 +474,16 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 //        }
 //
 //    }
-    private func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer!, error: NSError!) {
-        print("Audio Play Decode Error")
-    }
-
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-    }
-
-    private func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder!, error: NSError!) {
-        print("Audio Record Encode Error")
-    }
+//    private func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer!, error: NSError!) {
+//        print("Audio Play Decode Error")
+//    }
+//
+//    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+//    }
+//
+//    private func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder!, error: NSError!) {
+//        print("Audio Record Encode Error")
+//    }
     
 
     func setupRecorder(){
@@ -496,53 +507,34 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     @IBAction func stopRecording(_ sender: UIButton) {
         
-        switch sender.tag {
-        case 1:
-            if audioRecorder1 == nil {
-                //already stopped
-                print("already stopped 1")
-            } else {
-                print("Stopping recording 1")
-                audioRecorder1.stop()
-                audioRecorder1 = nil
-                recordingViewTearDown()
-            }
-        case 2:
-            if audioRecorder2 == nil {
-                //already stopped
-                print("already stopped 2")
-            } else {
-                print("Stopping recording 2")
-                audioRecorder2.stop()
-                audioRecorder2 = nil
-                recordingViewTearDown()
-            }
-        case 3:
-            if audioRecorder3 == nil {
-                //already stopped
-                print("already stopped")
-            } else {
-                print("Stopping recording")
-                audioRecorder3.stop()
-                audioRecorder3 = nil
-                recordingViewTearDown()
-            }
-        case 4:
-            if audioRecorder4 == nil {
-                //already stopped
-                print("already stopped")
-            } else {
-                print("Stopping recording")
-                audioRecorder4.stop()
-                audioRecorder4 = nil
-                recordingViewTearDown()
-            }
-        default:
-            print("errrror stopping recording")
-        }
+        if audioRecorder1 == nil {
+            //already stopped
+            print("already stopped 1")
+        } else {
+            print("Stopping recording 1")
+            audioRecorder1.stop()
+            audioRecorder1 = nil
+            recordingViewTearDown()
         
+            //let recordings = RecordingsList(recording1: , recording2: <#T##String#>, recording3: <#T##String#>, recording4: <#T##String#>, recording5: <#T##String#>, recording6: <#T##String#>, recording7: <#T##String#>, recording8: <#T##String#>)
+            
+            let sounds = Sounds(context: context)
 
-
+            // Assign values to the entity's properties
+            sounds.recording1 = "\(audioFileUrl)"
+            // To save the new entity to the persistent store, call
+            // save on the context
+            do {
+                try context.save()
+                
+                print("saving item to core data \(sounds.recording1!)")
+            }
+            catch let err{
+                // Handle Error
+                print("could not save to core data \(err)")
+            }
+            
+        }
     }
     //MARK: Finish Recording
     func finishRecording(success: Bool) {
@@ -567,11 +559,13 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                             self.countDownLbl.text = "2"
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                                 self.countDownLbl.text = "1"
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [self] in
 
                                     self.recordingViewSetup()
+                                    
                                     print("should be recordign")
                                     let audioFilename = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
+                                    self.audioFileUrl = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
                                     
                                     let settings = [
                                         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -580,69 +574,25 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                         AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
                                     ]
                                     
-                                    switch sender.tag {
-                                    case 1:
-                                        self.audioRecorder1 = AVAudioRecorder()
+                                    self.audioRecorder1 = AVAudioRecorder()
 
-                                        do {
-                                            self.audioRecorder1 = try AVAudioRecorder(url: audioFilename, settings: settings)
-                                            self.audioRecorder1.delegate = self
-                                            print("recording now....")
-                                            self.audioRecorder1.prepareToRecord()
-                                            self.audioRecorder1.record()
-                                            
-                                            sender.backgroundColor = UIColor.green
-                                            sender.setTitle("Play", for: .normal)
-                                            sender.setTitleColor(UIColor.white, for: .normal)
-                                            
-                                        } catch {
-                                            self.finishRecording(success: false)
-                                        }
+                                    do {
+                                        try self.recordingSession.setCategory(.record, mode: .default)
+                                        try self.recordingSession.setActive(true)
+                                        self.audioRecorder1 = try AVAudioRecorder(url: audioFilename, settings: settings)
+                                        self.audioRecorder1.delegate = self
+                                        print("recording now....")
+                                        self.audioRecorder1.prepareToRecord()
+                                        self.audioRecorder1.record()
                                         
-                                    case 2:
-                                        self.audioRecorder2 = AVAudioRecorder()
-
-                                        do {
-                                            self.audioRecorder2 = try AVAudioRecorder(url: audioFilename, settings: settings)
-                                            self.audioRecorder2.delegate = self
-                                            print("recording now....")
-                                            self.audioRecorder2.prepareToRecord()
-                                            self.audioRecorder2.record()
-                                            
-                                            sender.backgroundColor = UIColor.green
-                                            sender.setTitle("Play", for: .normal)
-                                            sender.setTitleColor(UIColor.white, for: .normal)
-                                            
-                                        } catch {
-                                            self.finishRecording(success: false)
-                                        }
-                                    case 3:
-                                        self.audioRecorder3 = AVAudioRecorder()
-
-                                        do {
-                                            self.audioRecorder3 = try AVAudioRecorder(url: audioFilename, settings: settings)
-                                            self.audioRecorder3.delegate = self
-                                            print("recording now....")
-                                            self.audioRecorder3.prepareToRecord()
-                                            self.audioRecorder3.record()
-                                            
-                                            sender.backgroundColor = UIColor.green
-                                            sender.setTitle("Play", for: .normal)
-                                            sender.setTitleColor(UIColor.white, for: .normal)
-                                            
-                                        } catch {
-                                            self.finishRecording(success: false)
-                                        }
-                                    default:
-                                        print("recorind errrrrorrrr")
+                                        sender.backgroundColor = UIColor.green
+                                        sender.setTitle("Play", for: .normal)
+                                        sender.setTitleColor(UIColor.white, for: .normal)
                                         
+                                    } catch {
+                                        self.finishRecording(success: false)
                                     }
-                                    
-      
                                 })
-                                
-
-                                
                             })
                         })
                     })
@@ -654,25 +604,25 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         }
     }
     
-    func removeAudioFile(fileNameWithExtension: String, completionHandler: @escaping(Bool)->Void){
-        
-        let filemanager = FileManager.default
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
-        let destinationPath = documentsPath.appendingPathComponent(fileNameWithExtension)
-
-        if destinationPath.isEmpty{
-            return
-        } else {
-            do {
-                try filemanager.removeItem(atPath: destinationPath)
-                print("Local path removed successfully")
-                completionHandler(true)
-            } catch let error as NSError {
-                print("------Error removing local path",error.debugDescription)
-                completionHandler(false)
-            }
-        }
-    }
+//    func removeAudioFile(fileNameWithExtension: String, completionHandler: @escaping(Bool)->Void){
+//
+//        let filemanager = FileManager.default
+//        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
+//        let destinationPath = documentsPath.appendingPathComponent(fileNameWithExtension)
+//
+//        if destinationPath.isEmpty{
+//            return
+//        } else {
+//            do {
+//                try filemanager.removeItem(atPath: destinationPath)
+//                print("Local path removed successfully")
+//                completionHandler(true)
+//            } catch let error as NSError {
+//                print("------Error removing local path",error.debugDescription)
+//                completionHandler(false)
+//            }
+//        }
+//    }
     
     //MARK: Get Documents Directory
     func getDocumentsDirectory() -> URL {
@@ -681,13 +631,13 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         return paths[0]
     }
     
-    func createFile(fileName: String) {
-        let fileName = "Test"
-        let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
-        print("File PAth: \(fileURL.path)")
-    }
-    
+//    func createFile(fileName: String) {
+//        let fileName = "Test"
+//        let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+//        let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+//        print("File PAth: \(fileURL.path)")
+//    }
+//
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder) {
     }
 
@@ -756,31 +706,35 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         } else {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         }
+        
+//        do {
+//            self.coreDataSounds = try context.fetch(Sounds.fetchRequest())
+//            dump(self.coreDataSounds)
+//
+//        } catch let err {
+//            print(err)
+//        }
+        
+        
 //        checkRecordingPrivleges()
     }
     
     func checkRecordingPrivleges(){
-        do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
-            try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { allowed in
-                DispatchQueue.main.async { [self] in
-                    if allowed {
-                        //allowed
-                        print("allowed to record")
-                        self.view.isUserInteractionEnabled = true
-                    } else {
-                        print("not allowed to record")
-                        self.view.isUserInteractionEnabled = false
-                        self.performSegue(withIdentifier: "disabled", sender: self)
-                    }
+        recordingSession.requestRecordPermission() { allowed in
+            DispatchQueue.main.async { [self] in
+                if allowed {
+                    //allowed
+                    print("allowed to record")
+                    self.view.isUserInteractionEnabled = true
+                } else {
+                    print("not allowed to record")
+                    self.view.isUserInteractionEnabled = false
+                    self.performSegue(withIdentifier: "disabled", sender: self)
                 }
             }
-        } catch {
-            // failed to record!
-            print("error recording")
         }
     }
+
     func recordingViewSetup(){
         self.countDownLbl.textColor = .white
         self.countDownLbl.text = "Recording"
@@ -822,6 +776,32 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     @IBAction func helpBtnAction(_ sender: Any) {
         self.performSegue(withIdentifier: "help", sender: self)
+    }
+    
+    func loadRecordings(){
+
+        do {
+            print("3")
+            // 3
+            self.coreDataSounds = try context.fetch(Sounds.fetchRequest())
+            
+            
+            
+            
+            print("FUNCTION RECORDING FOUND IN CORE DATA \(self.audioFileUrl)")
+
+            // 4
+//            recordings.forEach { recording in
+//                print("4")
+//                guard let title = recording.recording1 else {
+//                    fatalError("This was not supposed to happen")
+//                }
+//                self.audioFileUrl = URL(fileURLWithPath: title)
+//
+//            }
+        }  catch {
+            fatalError("This was not supposed to happen")
+        }
     }
 }
 

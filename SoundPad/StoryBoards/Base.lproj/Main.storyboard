@@ -20,13 +20,21 @@
                                 <rect key="frame" x="15" y="64" width="288.5" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soundPadIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xz4-l0-zmg">
-                                        <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="G5d-Jr-5jp"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EB-fy-Oz3">
+                                        <rect key="frame" x="102.5" y="0.0" width="83.5" height="60"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="playCoreDataAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Il-tf-EUz"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv7-UU-h0o">
-                                        <rect key="frame" x="154" y="0.0" width="134.5" height="60"/>
+                                        <rect key="frame" x="205" y="0.0" width="83.5" height="60"/>
                                         <color key="backgroundColor" red="0.38572794199999999" green="0.55534833669999994" blue="0.2985276878" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Help">
@@ -323,9 +331,9 @@
                                 <exclude reference="3f6-Lx-VOO"/>
                                 <exclude reference="pdW-z9-DXX"/>
                                 <include reference="uxs-9W-J2O"/>
+                                <include reference="gOh-Rf-992"/>
                                 <include reference="89Z-fT-iEb"/>
                                 <exclude reference="9Oz-mB-egX"/>
-                                <include reference="gOh-Rf-992"/>
                             </mask>
                         </variation>
                     </view>
