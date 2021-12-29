@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Sounds" representedClassName="Sounds" syncable="YES" codeGenerationType="class">
-        <attribute name="recording1" attributeType="String"/>
-        <attribute name="recording2" attributeType="String"/>
-        <attribute name="recording3" attributeType="String"/>
-        <attribute name="recording4" attributeType="String"/>
-        <attribute name="recording5" attributeType="String"/>
-        <attribute name="recording6" attributeType="String"/>
-        <attribute name="recording7" attributeType="String"/>
-        <attribute name="recording8" attributeType="String"/>
+        <attribute name="recording1" attributeType="String" defaultValueString=""/>
+        <attribute name="recording2" attributeType="String" defaultValueString=""/>
+        <attribute name="recording3" attributeType="String" defaultValueString=""/>
+        <attribute name="recording4" attributeType="String" defaultValueString=""/>
+        <attribute name="recording5" attributeType="String" defaultValueString=""/>
+        <attribute name="recording6" attributeType="String" defaultValueString=""/>
+        <attribute name="recording7" attributeType="String" defaultValueString=""/>
+        <attribute name="recording8" attributeType="String" defaultValueString=""/>
     </entity>
     <elements>
         <element name="Sounds" positionX="-54" positionY="-9" width="128" height="149"/>

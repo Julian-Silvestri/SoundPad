@@ -85,8 +85,10 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     var audioPlayer19: AVAudioPlayer? = nil
     var audioPlayer20: AVAudioPlayer? = nil
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate //Singlton instance
+    var context:NSManagedObjectContext!
+    var coreDataRecording1 = URL(fileURLWithPath: " ")
     
     var coreDataSounds: [Sounds]?
 
@@ -117,30 +119,90 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         btn18.tag = 18
         btn19.tag = 19
         btn20.tag = 20
-
+        self.context = appDelegate.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "Sounds", in: context)
+//        let sounds = NSManagedObject(entity: entity!, insertInto: context)
+//        deleteData(UserDBObj: sounds)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkRecordingPrivleges()
     }
+    
+    
+    func openDatabse(fileName: String){
+        let entity = NSEntityDescription.entity(forEntityName: "Sounds", in: context)
+        let sounds = NSManagedObject(entity: entity!, insertInto: context)
+        saveData(UserDBObj:sounds, fileName: fileName)
+    }
+    
+    func saveData(UserDBObj:NSManagedObject, fileName: String) {
+        UserDBObj.setValue("\(fileName)", forKey: "recording1")
+        
+        print("Storing Data..")
+        do {
+            try context.save()
+        } catch {
+            print("Storing data Failed")
+        }
+        //fetchData()
+    }
+    
+//    func deleteData(UserDBObj:NSManagedObject) {
+//        for data in [UserDBObj] {
+//            context.delete(data)
+//            print("deleted data from core data")
+//        }
+//    }
+    
+    func fetchData() -> String{
+        print("Fetching Data..")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Sounds")
+        request.returnsObjectsAsFaults = false
+        var coreRecording1 = ""
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let recording = data.value(forKey: "recording1") as! String
+//                let age = data.value(forKey: "age") as! String
+//                coreDataRecording1 = URL(fileURLWithPath: recording)
+                coreRecording1 = recording
+
+            }
+        } catch {
+            print("Fetching data Failed")
+        }
+        print("recording1 = \(coreDataRecording1)")
+        return coreRecording1
+//        print("recording1 (audioFileUrl) = \(audioFileUrl)")
+    }
 
     @IBAction func playCoreDataAudio(_ sender: Any) {
 
-        print("RECORDING FOUND IN CORE DATA \(self.audioFileUrl)")
-        loadRecordings()
-
+        let recording1 = fetchData()
+        
+        
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let docDir = dirPath[0]
+        let soundFilePath = (docDir as NSString).appendingPathComponent(recording1)
+        let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
+        
+        print("TRYING TO PLAY CORE DATA SOUNDS - > \(soundFileURL)")
+        
+//        print("RECORDING FOUND IN CORE DATA \(fetchData())")
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-            audioPlayer1 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
+            audioPlayer1 = try AVAudioPlayer(contentsOf: soundFileURL as URL, fileTypeHint: AVFileType.m4a.rawValue)
             audioPlayer1?.delegate = self
             audioPlayer1?.volume = 4.0
             audioPlayer1?.prepareToPlay()
             audioPlayer1?.play()
             print("PLAYING::::: \(audioFileUrl)")
        } catch let error {
-            print(error.localizedDescription)
+           print(error)
+           print(error.localizedDescription)
        }
     }
 
@@ -515,24 +577,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             audioRecorder1.stop()
             audioRecorder1 = nil
             recordingViewTearDown()
-        
-            //let recordings = RecordingsList(recording1: , recording2: <#T##String#>, recording3: <#T##String#>, recording4: <#T##String#>, recording5: <#T##String#>, recording6: <#T##String#>, recording7: <#T##String#>, recording8: <#T##String#>)
-            
-            let sounds = Sounds(context: context)
-
-            // Assign values to the entity's properties
-            sounds.recording1 = "\(audioFileUrl)"
-            // To save the new entity to the persistent store, call
-            // save on the context
-            do {
-                try context.save()
-                
-                print("saving item to core data \(sounds.recording1!)")
-            }
-            catch let err{
-                // Handle Error
-                print("could not save to core data \(err)")
-            }
             
         }
     }
@@ -566,7 +610,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                     print("should be recordign")
                                     let audioFilename = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
                                     self.audioFileUrl = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
-                                    
+                                    //self.coreDataRecording1 = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
+                
                                     let settings = [
                                         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
                                         AVSampleRateKey: 12000,
@@ -584,6 +629,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                         print("recording now....")
                                         self.audioRecorder1.prepareToRecord()
                                         self.audioRecorder1.record()
+                                        
+                                        openDatabse(fileName: "/recording\(sender.tag).m4a") //saves audio file to core data
                                         
                                         sender.backgroundColor = UIColor.green
                                         sender.setTitle("Play", for: .normal)
@@ -706,17 +753,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         } else {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         }
-        
-//        do {
-//            self.coreDataSounds = try context.fetch(Sounds.fetchRequest())
-//            dump(self.coreDataSounds)
-//
-//        } catch let err {
-//            print(err)
-//        }
-        
-        
-//        checkRecordingPrivleges()
     }
     
     func checkRecordingPrivleges(){
@@ -776,32 +812,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     @IBAction func helpBtnAction(_ sender: Any) {
         self.performSegue(withIdentifier: "help", sender: self)
-    }
-    
-    func loadRecordings(){
-
-        do {
-            print("3")
-            // 3
-            self.coreDataSounds = try context.fetch(Sounds.fetchRequest())
-            
-            
-            
-            
-            print("FUNCTION RECORDING FOUND IN CORE DATA \(self.audioFileUrl)")
-
-            // 4
-//            recordings.forEach { recording in
-//                print("4")
-//                guard let title = recording.recording1 else {
-//                    fatalError("This was not supposed to happen")
-//                }
-//                self.audioFileUrl = URL(fileURLWithPath: title)
-//
-//            }
-        }  catch {
-            fatalError("This was not supposed to happen")
-        }
     }
 }
 
