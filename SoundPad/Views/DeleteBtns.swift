@@ -12,19 +12,19 @@ class DeleteBtns: UIButton {
 
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        setupBtns()
+        noRecordings()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupBtns()
+        noRecordings()
     }
     
-    func setupBtns(){
+    func noRecordings(){
+        backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        setTitle("No Recording", for: .normal)
+        setTitleColor(UIColor.white, for: .normal)
         layer.cornerRadius = 8
-        backgroundColor = #colorLiteral(red: 0.7812709212, green: 0, blue: 0, alpha: 1)
-        titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
-        
+        titleLabel?.font = UIFont(name: "Avenir", size:10)
     }
-
 }

@@ -87,9 +87,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadApplication()
-//        loadRecordings()
-//        setupDisplay()
+        self.recordingSession = AVAudioSession.sharedInstance()
         btn1.tag = 1
         btn2.tag = 2
         btn3.tag = 3
@@ -115,6 +113,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkRecordingPrivleges()
+        loadApplication()
     }
     
     //MARK: Save Core Data
@@ -644,7 +643,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         
         self.audioRecorder1 = AVAudioRecorder()
         overrideUserInterfaceStyle = .light
-        self.recordingSession = AVAudioSession.sharedInstance()
+        
         self.title = "Sound Pad"
         self.helpBtn.layer.cornerRadius = 8
         if #available(iOS 13.0, *) {
@@ -653,107 +652,50 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         }
         
-        for sounds in coreDataSounds {
-            if sounds.recording1 != "" {
-                print("there is somethign in 1")
-                self.btn1.backgroundColor = UIColor.green
-                self.btn1.setTitle("Play", for: .normal)
+        checkAttribute(sender: self.btn1)
+        checkAttribute(sender: self.btn2)
+        checkAttribute(sender: self.btn3)
+        checkAttribute(sender: self.btn4)
+        checkAttribute(sender: self.btn5)
+        checkAttribute(sender: self.btn6)
+        checkAttribute(sender: self.btn7)
+        checkAttribute(sender: self.btn8)
+        checkAttribute(sender: self.btn9)
+        checkAttribute(sender: self.btn10)
+        checkAttribute(sender: self.btn11)
+        checkAttribute(sender: self.btn12)
+        checkAttribute(sender: self.btn13)
+        checkAttribute(sender: self.btn14)
+        checkAttribute(sender: self.btn15)
+        checkAttribute(sender: self.btn16)
+        checkAttribute(sender: self.btn17)
+        checkAttribute(sender: self.btn18)
+        checkAttribute(sender: self.btn19)
+        checkAttribute(sender: self.btn20)
+        
+    }
+    
+    //MARK: Check Attr
+    func checkAttribute(sender:UIButton) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {
+            return
+        }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Sounds")
+        fetchRequest.predicate = NSPredicate(format: "recording\(sender.tag) = %@", "/recording\(sender.tag).m4a")
+        
+        do {
+            let fr = try managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            
+            if fr!.count > 0 {
+                sender.backgroundColor = UIColor.green
+                sender.setTitle("Play", for: .normal)
+            } else {
+                sender.backgroundColor = UIColor.white
+                sender.setTitle("Record", for: .normal)
             }
-            if sounds.recording2 != "" {
-                print("there is somethign in 2")
-                self.btn2.backgroundColor = UIColor.green
-                self.btn2.setTitle("Play", for: .normal)
-            }
-            if sounds.recording3 != "" {
-                print("there is somethign in 3")
-                self.btn3.backgroundColor = UIColor.green
-                self.btn3.setTitle("Play", for: .normal)
-            }
-            if sounds.recording4 != "" {
-                print("there is somethign in 4")
-                self.btn4.backgroundColor = UIColor.green
-                self.btn4.setTitle("Play", for: .normal)
-            }
-            if sounds.recording5 != "" {
-                print("there is somethign in 5")
-                self.btn5.backgroundColor = UIColor.green
-                self.btn5.setTitle("Play", for: .normal)
-            }
-            if sounds.recording6 != "" {
-                print("there is somethign in 6")
-                self.btn6.backgroundColor = UIColor.green
-                self.btn6.setTitle("Play", for: .normal)
-            }
-            if sounds.recording7 != "" {
-                print("there is somethign in 7")
-                self.btn7.backgroundColor = UIColor.green
-                self.btn7.setTitle("Play", for: .normal)
-            }
-            if sounds.recording8 != "" {
-                print("there is somethign in 8")
-                self.btn8.backgroundColor = UIColor.green
-                self.btn8.setTitle("Play", for: .normal)
-            }
-            if sounds.recording9 != "" {
-                print("there is somethign in 9")
-                self.btn9.backgroundColor = UIColor.green
-                self.btn9.setTitle("Play", for: .normal)
-            }
-            if sounds.recording10 != "" {
-                print("there is somethign in 10")
-                self.btn10.backgroundColor = UIColor.green
-                self.btn10.setTitle("Play", for: .normal)
-            }
-            if sounds.recording11 != "" {
-                print("there is somethign in 11")
-                self.btn11.backgroundColor = UIColor.green
-                self.btn11.setTitle("Play", for: .normal)
-            }
-            if sounds.recording12 != "" {
-                print("there is somethign in 12")
-                self.btn12.backgroundColor = UIColor.green
-                self.btn12.setTitle("Play", for: .normal)
-            }
-            if sounds.recording13 != "" {
-                print("there is somethign in 13")
-                self.btn13.backgroundColor = UIColor.green
-                self.btn13.setTitle("Play", for: .normal)
-            }
-            if sounds.recording14 != "" {
-                print("there is somethign in 14")
-                self.btn14.backgroundColor = UIColor.green
-                self.btn14.setTitle("Play", for: .normal)
-            }
-            if sounds.recording15 != "" {
-                print("there is somethign in 15")
-                self.btn15.backgroundColor = UIColor.green
-                self.btn15.setTitle("Play", for: .normal)
-            }
-            if sounds.recording16 != "" {
-                print("there is somethign in 16")
-                self.btn16.backgroundColor = UIColor.green
-                self.btn16.setTitle("Play", for: .normal)
-            }
-            if sounds.recording17 != "" {
-                print("there is somethign in 17")
-                self.btn17.backgroundColor = UIColor.green
-                self.btn17.setTitle("Play", for: .normal)
-            }
-            if sounds.recording18 != "" {
-                print("there is somethign in 18")
-                self.btn18.backgroundColor = UIColor.green
-                self.btn18.setTitle("Play", for: .normal)
-            }
-            if sounds.recording19 != "" {
-                print("there is somethign in 19")
-                self.btn19.backgroundColor = UIColor.green
-                self.btn19.setTitle("Play", for: .normal)
-            }
-            if sounds.recording20 != "" {
-                print("there is somethign in 20")
-                self.btn20.backgroundColor = UIColor.green
-                self.btn20.setTitle("Play", for: .normal)
-            }
+            
+        } catch let err {
+            print(err)
         }
     }
     
