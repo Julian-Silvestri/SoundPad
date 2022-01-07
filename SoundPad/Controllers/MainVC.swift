@@ -9,6 +9,8 @@ import UIKit
 import AVFoundation
 import CoreData
 
+let appDelegate = UIApplication.shared.delegate as? AppDelegate //Singlton instance
+
 class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
     @IBOutlet weak var coreDataBtn: UIButton!
@@ -49,21 +51,15 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     @IBOutlet weak var innerStack3: UIStackView!
     @IBOutlet weak var innerStack4: UIStackView!
     @IBOutlet weak var innerStack5: UIStackView!
-    
-    
     @IBOutlet weak var stopRecordingBtn: UIButton!
-    @IBOutlet weak var recordingView: UIView!
-    @IBOutlet weak var countDownLbl: UILabel!
+    @IBOutlet weak var recordingView: RecordingView!
+    @IBOutlet weak var countDownLbl: CountDownLabels!
     @IBOutlet weak var helpBtn: UIButton!
     
     //Vars
-    
     var audioFileUrl:URL = URL(fileURLWithPath: " ")
-    
     var recordingSession: AVAudioSession!
-    
     var audioRecorder1: AVAudioRecorder!
-    
     var audioPlayer1: AVAudioPlayer? = nil
     var audioPlayer2: AVAudioPlayer? = nil
     var audioPlayer3: AVAudioPlayer? = nil
@@ -84,14 +80,9 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     var audioPlayer18: AVAudioPlayer? = nil
     var audioPlayer19: AVAudioPlayer? = nil
     var audioPlayer20: AVAudioPlayer? = nil
-    
-
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate //Singlton instance
     var context:NSManagedObjectContext!
     var coreDataRecording1 = URL(fileURLWithPath: " ")
-    
-    var coreDataSounds: [Sounds]?
-
+    var coreDataSounds: [Sounds] = []
     var loadedImg: URL? = nil
     
     override func viewDidLoad() {
@@ -119,10 +110,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         btn18.tag = 18
         btn19.tag = 19
         btn20.tag = 20
-        self.context = appDelegate.persistentContainer.viewContext
-//        let entity = NSEntityDescription.entity(forEntityName: "Sounds", in: context)
-//        let sounds = NSManagedObject(entity: entity!, insertInto: context)
-//        deleteData(UserDBObj: sounds)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,86 +117,85 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         checkRecordingPrivleges()
     }
     
-    
-    func openDatabse(fileName: String){
-        let entity = NSEntityDescription.entity(forEntityName: "Sounds", in: context)
-        let sounds = NSManagedObject(entity: entity!, insertInto: context)
-        saveData(UserDBObj:sounds, fileName: fileName)
-    }
-    
-    func saveData(UserDBObj:NSManagedObject, fileName: String) {
-        UserDBObj.setValue("\(fileName)", forKey: "recording1")
+    //MARK: Save Core Data
+    func saveData(sender: Int, fileName: String) {
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let sounds = Sounds(context: managedContext)
+        
+        switch sender {
+            case 1:
+                sounds.recording1 = fileName
+            case 2:
+                sounds.recording2 = fileName
+            case 3:
+                sounds.recording3 = fileName
+            case 4:
+                sounds.recording4 = fileName
+            case 5:
+                sounds.recording5 = fileName
+            case 6:
+                sounds.recording6 = fileName
+            case 7:
+                sounds.recording7 = fileName
+            case 8:
+                sounds.recording8 = fileName
+            case 9:
+                sounds.recording9 = fileName
+            case 10:
+                sounds.recording10 = fileName
+            case 11:
+                sounds.recording11 = fileName
+            case 12:
+                sounds.recording12 = fileName
+            case 13:
+                sounds.recording13 = fileName
+            case 14:
+                sounds.recording14 = fileName
+            case 15:
+                sounds.recording15 = fileName
+            case 16:
+                sounds.recording16 = fileName
+            case 17:
+                sounds.recording17 = fileName
+            case 18:
+                sounds.recording18 = fileName
+            case 19:
+                sounds.recording19 = fileName
+            case 20:
+                sounds.recording20 = fileName
+            default:
+                print("Could not save")
+        }
         
         print("Storing Data..")
         do {
-            try context.save()
-        } catch {
-            print("Storing data Failed")
+            try managedContext.save()
+        } catch let err{
+            print("Storing data Failed \(err)")
         }
-        //fetchData()
     }
     
-//    func deleteData(UserDBObj:NSManagedObject) {
-//        for data in [UserDBObj] {
-//            context.delete(data)
-//            print("deleted data from core data")
-//        }
-//    }
-    
-    func fetchData() -> String{
+    //MARK: Fetch Core Data
+    func fetchData(){
         print("Fetching Data..")
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Sounds")
-        request.returnsObjectsAsFaults = false
-        var coreRecording1 = ""
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                let recording = data.value(forKey: "recording1") as! String
-//                let age = data.value(forKey: "age") as! String
-//                coreDataRecording1 = URL(fileURLWithPath: recording)
-                coreRecording1 = recording
-
-            }
-        } catch {
-            print("Fetching data Failed")
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {
+            return
         }
-        print("recording1 = \(coreDataRecording1)")
-        return coreRecording1
-//        print("recording1 (audioFileUrl) = \(audioFileUrl)")
-    }
+        
+        let request = NSFetchRequest<Sounds>(entityName: "Sounds")
 
-    @IBAction func playCoreDataAudio(_ sender: Any) {
-
-        let recording1 = fetchData()
-        
-        
-        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let docDir = dirPath[0]
-        let soundFilePath = (docDir as NSString).appendingPathComponent(recording1)
-        let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
-        
-        print("TRYING TO PLAY CORE DATA SOUNDS - > \(soundFileURL)")
-        
-//        print("RECORDING FOUND IN CORE DATA \(fetchData())")
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-            audioPlayer1 = try AVAudioPlayer(contentsOf: soundFileURL as URL, fileTypeHint: AVFileType.m4a.rawValue)
-            audioPlayer1?.delegate = self
-            audioPlayer1?.volume = 4.0
-            audioPlayer1?.prepareToPlay()
-            audioPlayer1?.play()
-            print("PLAYING::::: \(audioFileUrl)")
-       } catch let error {
-           print(error)
-           print(error.localizedDescription)
-       }
+            self.coreDataSounds = try managedContext.fetch(request)
+        } catch let err{
+            print("Fetching data Failed \(err)")
+        }
     }
-
     
+    //MARK: Play Audio
     func playAudio(sender: UIButton) {
-        
-        
+
         self.audioFileUrl = getAudioRecorded(sender: sender, audioNameWithExtension: "recording\(sender.tag).m4a")
         stopAllPlayers()
         
@@ -509,45 +495,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         }
     }
 
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        //recordBtn.isEnabled = true
-        //stopBtn.isEnabled = false
-    }
-
-//    @IBAction func testSave(_ sender: UIButton) {
-//
-//        print("tring to save")
-//
-//        let fileManager = FileManager.default
-//        do {
-//            //let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create:true)
-//            let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//            let fileURL = paths.appendingPathComponent("png")
-//            let image = #imageLiteral(resourceName: "looperLogo")
-//            print("almost there")
-//            if let imageData = image.pngData() {
-//                try imageData.write(to: fileURL)
-//                print("saved image \(fileURL)")
-//                self.loadedImg = fileURL
-//                return
-//            }
-//        } catch {
-//            print(error)
-//        }
-//
-//    }
-//    private func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer!, error: NSError!) {
-//        print("Audio Play Decode Error")
-//    }
-//
-//    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-//    }
-//
-//    private func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder!, error: NSError!) {
-//        print("Audio Record Encode Error")
-//    }
     
-
+    //MARK: Setup Recorder
     func setupRecorder(){
         //self.recordBtn.addAction(, for: .touchUpInside)
         do {
@@ -567,6 +516,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         }
     }
     
+    //MARK: Stop Recording
     @IBAction func stopRecording(_ sender: UIButton) {
         
         if audioRecorder1 == nil {
@@ -576,13 +526,11 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             print("Stopping recording 1")
             audioRecorder1.stop()
             audioRecorder1 = nil
-            recordingViewTearDown()
+            self.recordingView.recordingTearDown()
+            self.countDownLbl.labelViewTearDown()
+//            recordingViewTearDown()
             
         }
-    }
-    //MARK: Finish Recording
-    func finishRecording(success: Bool) {
-
     }
     
     //MARK: Start Recording
@@ -605,12 +553,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                 self.countDownLbl.text = "1"
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [self] in
 
-                                    self.recordingViewSetup()
+                                    self.recordingView.recordingSetup()
+                                    self.countDownLbl.labelViewSetup()
                                     
                                     print("should be recordign")
                                     let audioFilename = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
                                     self.audioFileUrl = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
-                                    //self.coreDataRecording1 = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
                 
                                     let settings = [
                                         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -630,14 +578,15 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                         self.audioRecorder1.prepareToRecord()
                                         self.audioRecorder1.record()
                                         
-                                        openDatabse(fileName: "/recording\(sender.tag).m4a") //saves audio file to core data
+                                        //openDatabse(fileName: "/recording\(sender.tag).m4a") //saves audio file to core data
+                                        saveData(sender: sender.tag, fileName: "/recording\(sender.tag).m4a")
                                         
                                         sender.backgroundColor = UIColor.green
                                         sender.setTitle("Play", for: .normal)
-                                        sender.setTitleColor(UIColor.white, for: .normal)
+                                        sender.setTitleColor(UIColor.black, for: .normal)
                                         
-                                    } catch {
-                                        self.finishRecording(success: false)
+                                    } catch let err {
+                                        print("Error recording \(err)")
                                     }
                                 })
                             })
@@ -646,48 +595,17 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                 })
             } else {
                 print("ERROR -> Had to stop recording (startRecording, ibaciton)")
-                self.finishRecording(success: true)
             }
         }
     }
     
-//    func removeAudioFile(fileNameWithExtension: String, completionHandler: @escaping(Bool)->Void){
-//
-//        let filemanager = FileManager.default
-//        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true)[0] as NSString
-//        let destinationPath = documentsPath.appendingPathComponent(fileNameWithExtension)
-//
-//        if destinationPath.isEmpty{
-//            return
-//        } else {
-//            do {
-//                try filemanager.removeItem(atPath: destinationPath)
-//                print("Local path removed successfully")
-//                completionHandler(true)
-//            } catch let error as NSError {
-//                print("------Error removing local path",error.debugDescription)
-//                completionHandler(false)
-//            }
-//        }
-//    }
-    
     //MARK: Get Documents Directory
     func getDocumentsDirectory() -> URL {
-        
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
     
-//    func createFile(fileName: String) {
-//        let fileName = "Test"
-//        let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-//        let fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
-//        print("File PAth: \(fileURL.path)")
-//    }
-//
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder) {
-    }
-
+    //MARK: Get Audio Recorded File Path
     func getAudioRecorded(sender: UIButton, audioNameWithExtension: String) -> URL{
         // getting URL path for audio
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -699,29 +617,10 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
     }
     
-//    func getImgUrl() -> UIImage{
-//        // getting URL path for audio
-//        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-////        let docDir = dirPath[0]
-////        let soundFilePath = (docDir as NSString).appendingPathComponent("png.png")
-////        let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
-////        print(soundFilePath)
-////        return soundFileURL as URL
-//        var img = UIImage()
-//
-//        if let path = dirPath.first{
-//
-//            let imageURL = URL(fileURLWithPath: path).appendingPathComponent("png.png")
-//            img = UIImage(contentsOfFile: imageURL.path)!
-//
-//
-//           // Do whatever you want with the image
-//        }
-//        return img
-//
-//    }
-    
+    //MARK: Load APP
     func loadApplication() {
+        fetchData()
+        self.helpBtn.layer.cornerRadius = 8
         self.audioPlayer1 = AVAudioPlayer()
         self.audioPlayer2 = AVAudioPlayer()
         self.audioPlayer3 = AVAudioPlayer()
@@ -753,8 +652,112 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         } else {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         }
+        
+        for sounds in coreDataSounds {
+            if sounds.recording1 != "" {
+                print("there is somethign in 1")
+                self.btn1.backgroundColor = UIColor.green
+                self.btn1.setTitle("Play", for: .normal)
+            }
+            if sounds.recording2 != "" {
+                print("there is somethign in 2")
+                self.btn2.backgroundColor = UIColor.green
+                self.btn2.setTitle("Play", for: .normal)
+            }
+            if sounds.recording3 != "" {
+                print("there is somethign in 3")
+                self.btn3.backgroundColor = UIColor.green
+                self.btn3.setTitle("Play", for: .normal)
+            }
+            if sounds.recording4 != "" {
+                print("there is somethign in 4")
+                self.btn4.backgroundColor = UIColor.green
+                self.btn4.setTitle("Play", for: .normal)
+            }
+            if sounds.recording5 != "" {
+                print("there is somethign in 5")
+                self.btn5.backgroundColor = UIColor.green
+                self.btn5.setTitle("Play", for: .normal)
+            }
+            if sounds.recording6 != "" {
+                print("there is somethign in 6")
+                self.btn6.backgroundColor = UIColor.green
+                self.btn6.setTitle("Play", for: .normal)
+            }
+            if sounds.recording7 != "" {
+                print("there is somethign in 7")
+                self.btn7.backgroundColor = UIColor.green
+                self.btn7.setTitle("Play", for: .normal)
+            }
+            if sounds.recording8 != "" {
+                print("there is somethign in 8")
+                self.btn8.backgroundColor = UIColor.green
+                self.btn8.setTitle("Play", for: .normal)
+            }
+            if sounds.recording9 != "" {
+                print("there is somethign in 9")
+                self.btn9.backgroundColor = UIColor.green
+                self.btn9.setTitle("Play", for: .normal)
+            }
+            if sounds.recording10 != "" {
+                print("there is somethign in 10")
+                self.btn10.backgroundColor = UIColor.green
+                self.btn10.setTitle("Play", for: .normal)
+            }
+            if sounds.recording11 != "" {
+                print("there is somethign in 11")
+                self.btn11.backgroundColor = UIColor.green
+                self.btn11.setTitle("Play", for: .normal)
+            }
+            if sounds.recording12 != "" {
+                print("there is somethign in 12")
+                self.btn12.backgroundColor = UIColor.green
+                self.btn12.setTitle("Play", for: .normal)
+            }
+            if sounds.recording13 != "" {
+                print("there is somethign in 13")
+                self.btn13.backgroundColor = UIColor.green
+                self.btn13.setTitle("Play", for: .normal)
+            }
+            if sounds.recording14 != "" {
+                print("there is somethign in 14")
+                self.btn14.backgroundColor = UIColor.green
+                self.btn14.setTitle("Play", for: .normal)
+            }
+            if sounds.recording15 != "" {
+                print("there is somethign in 15")
+                self.btn15.backgroundColor = UIColor.green
+                self.btn15.setTitle("Play", for: .normal)
+            }
+            if sounds.recording16 != "" {
+                print("there is somethign in 16")
+                self.btn16.backgroundColor = UIColor.green
+                self.btn16.setTitle("Play", for: .normal)
+            }
+            if sounds.recording17 != "" {
+                print("there is somethign in 17")
+                self.btn17.backgroundColor = UIColor.green
+                self.btn17.setTitle("Play", for: .normal)
+            }
+            if sounds.recording18 != "" {
+                print("there is somethign in 18")
+                self.btn18.backgroundColor = UIColor.green
+                self.btn18.setTitle("Play", for: .normal)
+            }
+            if sounds.recording19 != "" {
+                print("there is somethign in 19")
+                self.btn19.backgroundColor = UIColor.green
+                self.btn19.setTitle("Play", for: .normal)
+            }
+            if sounds.recording20 != "" {
+                print("there is somethign in 20")
+                self.btn20.backgroundColor = UIColor.green
+                self.btn20.setTitle("Play", for: .normal)
+            }
+        }
     }
     
+    //MARK: Check Recording Privl
     func checkRecordingPrivleges(){
         recordingSession.requestRecordPermission() { allowed in
             DispatchQueue.main.async { [self] in
@@ -771,22 +774,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         }
     }
 
-    func recordingViewSetup(){
-        self.countDownLbl.textColor = .white
-        self.countDownLbl.text = "Recording"
-        self.recordingView.alpha = 0.9
-        self.recordingView.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
-        self.recordingView.layer.cornerRadius = 15
-    }
-    
-    func recordingViewTearDown(){
-        self.countDownLbl.textColor = .black
-        self.countDownLbl.text = "..."
-        self.recordingView.alpha = 0
-        self.recordingView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-    }
-    
+    //MARK: Stop All Players
     func stopAllPlayers(){
         audioPlayer1?.stop()
         audioPlayer2?.stop()

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jwv-5E-Wkh">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,25 +21,17 @@
                                 <rect key="frame" x="15" y="64" width="288.5" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soundPadIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Xz4-l0-zmg">
-                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="G5d-Jr-5jp"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EB-fy-Oz3">
-                                        <rect key="frame" x="102.5" y="0.0" width="83.5" height="60"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <connections>
-                                            <action selector="playCoreDataAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Il-tf-EUz"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv7-UU-h0o">
-                                        <rect key="frame" x="205" y="0.0" width="83.5" height="60"/>
-                                        <color key="backgroundColor" red="0.38572794199999999" green="0.55534833669999994" blue="0.2985276878" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="154" y="0.0" width="134.5" height="60"/>
+                                        <color key="backgroundColor" red="0.34014314410000002" green="0.71498388049999995" blue="0.68202179669999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Help">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="helpBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wbd-Dx-e7D"/>
@@ -237,7 +230,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-21-QZq">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-21-QZq" customClass="RecordingView" customModule="SoundPad" customModuleProvider="target">
                                 <rect key="frame" x="15" y="132" width="290" height="340"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEP-ed-ifT">
@@ -253,7 +246,7 @@
                                             <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iif-8a-DwY"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="3LB-fY-Px9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="3LB-fY-Px9" customClass="CountDownLabels" customModule="SoundPad" customModuleProvider="target">
                                         <rect key="frame" x="4" y="77" width="282" height="98.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="72"/>
                                         <nil key="textColor"/>
@@ -305,7 +298,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XRm-21-QZq" secondAttribute="bottom" constant="8" id="08A-oN-LOx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4XJ-DD-GzX" secondAttribute="trailing" constant="16" id="1ZV-7t-Eov"/>
-                            <constraint firstItem="SbO-cl-5u2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="3G7-NG-dyk"/>
+                            <constraint firstItem="SbO-cl-5u2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="3G7-NG-dyk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SbO-cl-5u2" secondAttribute="trailing" constant="16.5" id="3f6-Lx-VOO"/>
                             <constraint firstItem="4XJ-DD-GzX" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="8" id="89Z-fT-iEb"/>
                             <constraint firstItem="4XJ-DD-GzX" firstAttribute="top" secondItem="SbO-cl-5u2" secondAttribute="bottom" constant="16" id="9Oz-mB-egX"/>
@@ -361,7 +354,7 @@
                         <outlet property="btn7" destination="acq-3i-NcH" id="WC6-1j-3cc"/>
                         <outlet property="btn8" destination="SOj-l1-Mjo" id="qoi-mp-oUc"/>
                         <outlet property="btn9" destination="rvH-7T-duR" id="WqQ-Uo-NVd"/>
-                        <outlet property="countDownLbl" destination="3LB-fY-Px9" id="nUz-H5-woY"/>
+                        <outlet property="countDownLbl" destination="3LB-fY-Px9" id="Nqn-5C-c42"/>
                         <outlet property="headerStackView" destination="SbO-cl-5u2" id="QhD-Bs-bJm"/>
                         <outlet property="helpBtn" destination="jv7-UU-h0o" id="RWt-he-x6v"/>
                         <outlet property="innerStack1" destination="WIN-Mj-2lp" id="H0X-JN-GEq"/>
@@ -370,7 +363,7 @@
                         <outlet property="innerStack4" destination="SH0-0B-krS" id="FPv-6c-2bA"/>
                         <outlet property="innerStack5" destination="ET7-HP-h9n" id="zdd-8D-mno"/>
                         <outlet property="outerStack" destination="4XJ-DD-GzX" id="xuN-NY-XgI"/>
-                        <outlet property="recordingView" destination="XRm-21-QZq" id="7li-zm-1Qg"/>
+                        <outlet property="recordingView" destination="XRm-21-QZq" id="7C6-GD-HHj"/>
                         <outlet property="stopRecordingBtn" destination="qEP-ed-ifT" id="zcT-5J-fPn"/>
                         <segue destination="UDT-xY-zVB" kind="show" identifier="disabled" id="vEj-Ng-vnz"/>
                         <segue destination="NYk-uY-eiB" kind="show" identifier="help" id="cwQ-qm-Krb"/>
@@ -380,21 +373,364 @@
             </objects>
             <point key="canvasLocation" x="1136.25" y="135"/>
         </scene>
-        <!--HelpVC-->
+        <!--Help-->
         <scene sceneID="77U-Fz-7AN">
             <objects>
                 <viewController id="NYk-uY-eiB" customClass="HelpVC" customModule="SoundPad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WuJ-4s-nig">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Deleting the application and reinstalling will remove all saved recordings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-6N-pI5">
+                                <rect key="frame" x="16" y="144" width="288" height="82"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-At-3XB">
+                                <rect key="frame" x="16" y="234" width="288" height="164"/>
+                                <string key="text">3. If you wish to delete all or some or one recordings tap the button bellow. The delete buttons are mapped respectively to each recording button.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0z-Rx-6g7">
+                                <rect key="frame" x="10" y="402" width="300" height="58"/>
+                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="1n6-zu-xBM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete Recordings">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteBtnAction:" destination="NYk-uY-eiB" eventType="touchUpInside" id="BoL-O0-6FQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Sound pad will record up to 20 custom recordings and save them for you. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Le1-Rh-U4P">
+                                <rect key="frame" x="16" y="54" width="288" height="82"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nAk-Ir-a3o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nAk-Ir-a3o" firstAttribute="trailing" secondItem="Le1-Rh-U4P" secondAttribute="trailing" constant="16" id="2qZ-FK-a0y"/>
+                            <constraint firstItem="0b7-At-3XB" firstAttribute="leading" secondItem="nAk-Ir-a3o" secondAttribute="leading" constant="16" id="9kT-WM-Vj6"/>
+                            <constraint firstItem="nAk-Ir-a3o" firstAttribute="trailing" secondItem="N0z-Rx-6g7" secondAttribute="trailing" constant="10" id="GGN-ZV-2bd"/>
+                            <constraint firstItem="nAk-Ir-a3o" firstAttribute="bottom" secondItem="N0z-Rx-6g7" secondAttribute="bottom" constant="20" id="Q7q-ZE-DqI"/>
+                            <constraint firstItem="hXi-6N-pI5" firstAttribute="top" secondItem="Le1-Rh-U4P" secondAttribute="bottom" constant="8" id="T22-Nj-efW"/>
+                            <constraint firstItem="0b7-At-3XB" firstAttribute="top" secondItem="hXi-6N-pI5" secondAttribute="bottom" constant="8" id="WfO-ML-tpz"/>
+                            <constraint firstItem="N0z-Rx-6g7" firstAttribute="leading" secondItem="nAk-Ir-a3o" secondAttribute="leading" constant="10" id="fSv-oZ-cTv"/>
+                            <constraint firstItem="hXi-6N-pI5" firstAttribute="leading" secondItem="nAk-Ir-a3o" secondAttribute="leading" constant="16" id="kb6-CH-Z8M"/>
+                            <constraint firstItem="nAk-Ir-a3o" firstAttribute="trailing" secondItem="hXi-6N-pI5" secondAttribute="trailing" constant="16" id="nSe-pw-vJC"/>
+                            <constraint firstItem="Le1-Rh-U4P" firstAttribute="leading" secondItem="nAk-Ir-a3o" secondAttribute="leading" constant="16" id="pn0-3w-nUL"/>
+                            <constraint firstItem="nAk-Ir-a3o" firstAttribute="trailing" secondItem="0b7-At-3XB" secondAttribute="trailing" constant="16" id="sTr-FG-KN6"/>
+                            <constraint firstItem="Le1-Rh-U4P" firstAttribute="top" secondItem="nAk-Ir-a3o" secondAttribute="top" constant="10" id="yKV-Go-dTv"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="U41-JU-0eS"/>
+                    <navigationItem key="navigationItem" title="Help" id="U41-JU-0eS"/>
+                    <connections>
+                        <segue destination="Jkg-cj-t1e" kind="show" identifier="delete" id="OT9-g3-zzW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4o-Bs-4IG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2186" y="-591"/>
+            <point key="canvasLocation" x="2184.375" y="-591.25"/>
+        </scene>
+        <!--Delete-->
+        <scene sceneID="wjD-Bj-yBV">
+            <objects>
+                <viewController id="Jkg-cj-t1e" customClass="DeleteVC" customModule="SoundPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g5N-wJ-1KQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dOH-9X-yif">
+                                <rect key="frame" x="5" y="49" width="310" height="344"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qFx-Y4-wBj">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="61"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfh-A9-Pcu" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="NsH-Bk-c0l"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 1">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pB3-82-Sbx" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="78" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="lTk-6r-6dD"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 2">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNR-iu-yQO" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="156" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="hom-pS-R2a"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 3">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iz-bJ-ohP" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="234" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="wC5-k3-2gX"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 4">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Mis-84-2Gi">
+                                        <rect key="frame" x="0.0" y="71" width="310" height="60.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55H-aI-wTE" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="sCH-XO-tT0"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 5">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IO-cc-rxp" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="78" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="yyE-1d-Bx8"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 6">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eU-qX-01I" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="156" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="LSG-hT-Jyl"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 7">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nI-jr-xR5" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="234" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="L7x-lk-EWh"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 8">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="JpJ-5f-PQu">
+                                        <rect key="frame" x="0.0" y="141.5" width="310" height="61"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twy-99-y5T" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="Hgp-Eg-UgU"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 9">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azD-80-5bd" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="78" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="ygK-iG-Tc1"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 10">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XH9-6Q-0qx" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="156" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="JdJ-SF-nm9"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 11">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exG-gi-Mwm" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="234" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="LSI-20-aeH"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 12">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WNA-Mq-y9M">
+                                        <rect key="frame" x="0.0" y="212.5" width="310" height="60.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTv-WV-Qgj" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="REE-ek-B9x"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 13">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKD-DW-Cgd" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="78" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="njP-j3-W8I"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 14">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff3-Pd-sKU" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="156" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="pTd-MM-dBG"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 15">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOs-bN-R6M" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="234" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="DeO-U1-q2P"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 16">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Lpo-v0-Ftb">
+                                        <rect key="frame" x="0.0" y="283" width="310" height="61"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8h-Z8-ze0" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="819-50-YZi"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 17">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1O-oL-cPx" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="78" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="bzi-mt-YEs"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 18">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7c-Qw-ez7" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="156" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="tsm-lz-Cb3"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 19">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tG-1X-ih2" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
+                                                <rect key="frame" x="234" y="0.0" width="76" height="58"/>
+                                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="mWT-vy-8W4"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete 20">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="os8-f6-Sze">
+                                <rect key="frame" x="5" y="402" width="310" height="58"/>
+                                <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Eax-Xt-KYc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete All Recordings">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteAllRecordings:" destination="Jkg-cj-t1e" eventType="touchUpInside" id="qbz-bZ-vPF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wCv-0z-8sp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="os8-f6-Sze" firstAttribute="top" secondItem="dOH-9X-yif" secondAttribute="bottom" constant="9" id="4LH-n5-UiB"/>
+                            <constraint firstItem="wCv-0z-8sp" firstAttribute="bottom" secondItem="os8-f6-Sze" secondAttribute="bottom" constant="20" id="55x-k9-aas"/>
+                            <constraint firstItem="os8-f6-Sze" firstAttribute="leading" secondItem="wCv-0z-8sp" secondAttribute="leading" constant="5" id="Jbn-Dv-LD4"/>
+                            <constraint firstItem="wCv-0z-8sp" firstAttribute="trailing" secondItem="os8-f6-Sze" secondAttribute="trailing" constant="5" id="RvS-PQ-908"/>
+                            <constraint firstItem="wCv-0z-8sp" firstAttribute="trailing" secondItem="dOH-9X-yif" secondAttribute="trailing" constant="5" id="VYF-L8-jzL"/>
+                            <constraint firstItem="dOH-9X-yif" firstAttribute="top" secondItem="wCv-0z-8sp" secondAttribute="top" constant="5" id="dh1-mR-zJA"/>
+                            <constraint firstItem="dOH-9X-yif" firstAttribute="leading" secondItem="wCv-0z-8sp" secondAttribute="leading" constant="5" id="lEN-Pg-HNd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Delete" id="hoF-BI-YM5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8dP-pU-l4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2986.875" y="-591.25"/>
         </scene>
         <!--DisabledVC-->
         <scene sceneID="TqJ-mn-bsA">
@@ -435,7 +771,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jwv-5E-Wkh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="odR-zF-2R1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -511,7 +847,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="soundPadIcon" width="1022" height="650"/>
+        <image name="soundPadIcon" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

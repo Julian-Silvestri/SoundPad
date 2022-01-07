@@ -9,8 +9,20 @@
         <attribute name="recording6" attributeType="String" defaultValueString=""/>
         <attribute name="recording7" attributeType="String" defaultValueString=""/>
         <attribute name="recording8" attributeType="String" defaultValueString=""/>
+        <attribute name="recording9" attributeType="String" defaultValueString=""/>
+        <attribute name="recording10" attributeType="String" defaultValueString=""/>
+        <attribute name="recording11" attributeType="String" defaultValueString=""/>
+        <attribute name="recording12" attributeType="String" defaultValueString=""/>
+        <attribute name="recording13" attributeType="String" defaultValueString=""/>
+        <attribute name="recording14" attributeType="String" defaultValueString=""/>
+        <attribute name="recording15" attributeType="String" defaultValueString=""/>
+        <attribute name="recording16" attributeType="String" defaultValueString=""/>
+        <attribute name="recording17" attributeType="String" defaultValueString=""/>
+        <attribute name="recording18" attributeType="String" defaultValueString=""/>
+        <attribute name="recording19" attributeType="String" defaultValueString=""/>
+        <attribute name="recording20" attributeType="String" defaultValueString=""/>
     </entity>
     <elements>
-        <element name="Sounds" positionX="-54" positionY="-9" width="128" height="149"/>
+        <element name="Sounds" positionX="-54" positionY="-9" width="128" height="329"/>
     </elements>
 </model>

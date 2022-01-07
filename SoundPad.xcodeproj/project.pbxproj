@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081C4F7E2785D464007E2485 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C4F7D2785D463007E2485 /* RecordingView.swift */; };
+		081C4F802785D4D5007E2485 /* CountDownLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C4F7F2785D4D5007E2485 /* CountDownLabels.swift */; };
+		081C4F822788B819007E2485 /* DeleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C4F812788B819007E2485 /* DeleteVC.swift */; };
+		081C4F842788B8F8007E2485 /* DeleteBtns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C4F832788B8F8007E2485 /* DeleteBtns.swift */; };
 		0864BDBB27765B260085B527 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0864BDBA27765B260085B527 /* CustomButton.swift */; };
 		0890318727781E7C00009A65 /* DisabledVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890318627781E7B00009A65 /* DisabledVC.swift */; };
 		089031892778273000009A65 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089031882778273000009A65 /* HelpVC.swift */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		081C4F7D2785D463007E2485 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		081C4F7F2785D4D5007E2485 /* CountDownLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownLabels.swift; sourceTree = "<group>"; };
+		081C4F812788B819007E2485 /* DeleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteVC.swift; sourceTree = "<group>"; };
+		081C4F832788B8F8007E2485 /* DeleteBtns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBtns.swift; sourceTree = "<group>"; };
 		0864BDBA27765B260085B527 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0890318627781E7B00009A65 /* DisabledVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledVC.swift; sourceTree = "<group>"; };
 		089031882778273000009A65 /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
@@ -90,6 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				0864BDBA27765B260085B527 /* CustomButton.swift */,
+				081C4F7D2785D463007E2485 /* RecordingView.swift */,
+				081C4F7F2785D4D5007E2485 /* CountDownLabels.swift */,
+				081C4F832788B8F8007E2485 /* DeleteBtns.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +111,7 @@
 				08BE21DC2774FDEA001956CD /* MainVC.swift */,
 				0890318627781E7B00009A65 /* DisabledVC.swift */,
 				089031882778273000009A65 /* HelpVC.swift */,
+				081C4F812788B819007E2485 /* DeleteVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,10 +318,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				08BE21DD2774FDEA001956CD /* MainVC.swift in Sources */,
+				081C4F842788B8F8007E2485 /* DeleteBtns.swift in Sources */,
 				089031892778273000009A65 /* HelpVC.swift in Sources */,
 				08BE21D92774FDEA001956CD /* AppDelegate.swift in Sources */,
+				081C4F822788B819007E2485 /* DeleteVC.swift in Sources */,
 				08BE21DB2774FDEA001956CD /* SceneDelegate.swift in Sources */,
 				08BE21E32774FDEA001956CD /* SoundPad.xcdatamodeld in Sources */,
+				081C4F7E2785D464007E2485 /* RecordingView.swift in Sources */,
+				081C4F802785D4D5007E2485 /* CountDownLabels.swift in Sources */,
 				0890318727781E7C00009A65 /* DisabledVC.swift in Sources */,
 				0864BDBB27765B260085B527 /* CustomButton.swift in Sources */,
 				08EB1991277A4B2400837684 /* Model.swift in Sources */,
@@ -419,11 +435,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SHARED_PRECOMPS_DIR = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -474,10 +491,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SHARED_PRECOMPS_DIR = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -499,6 +517,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,6 +546,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,7 +569,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,7 +594,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
