@@ -9,11 +9,10 @@ import UIKit
 import AVFoundation
 import CoreData
 
-let appDelegate = UIApplication.shared.delegate as? AppDelegate //Singlton instance
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
-    @IBOutlet weak var coreDataBtn: UIButton!
     //CUSTOM BTNS
     @IBOutlet weak var btn1: CustomButton!
     @IBOutlet weak var btn2: CustomButton!
@@ -85,8 +84,11 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     var coreDataSounds: [Sounds] = []
     var loadedImg: URL? = nil
     
+    let playSoundBtnClr = #colorLiteral(red: 0.6, green: 0.7607843137, blue: 0.3019607843, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.recordingSession = AVAudioSession.sharedInstance()
         btn1.tag = 1
         btn2.tag = 2
@@ -167,7 +169,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                 print("Could not save")
         }
         
-        print("Storing Data..")
+//        print("Storing Data..")
         do {
             try managedContext.save()
         } catch let err{
@@ -177,7 +179,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     //MARK: Fetch Core Data
     func fetchData(){
-        print("Fetching Data..")
+//        print("Fetching Data..")
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {
             return
@@ -202,7 +204,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             
             switch sender.tag {
             case 1:
-                print("trying to play audio 1")
+//                print("trying to play audio 1")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -213,13 +215,13 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer1?.volume = 4.0
                     audioPlayer1?.prepareToPlay()
                     audioPlayer1?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
                     
             case 2:
-                print("trying to play audio 2")
+//                print("trying to play audio 2")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -228,12 +230,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer2?.volume = 4.0
                     audioPlayer2?.prepareToPlay()
                     audioPlayer2?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 3:
-                print("trying to play audio 3")
+//                print("trying to play audio 3")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -242,12 +244,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer3?.volume = 4.0
                     audioPlayer3?.prepareToPlay()
                     audioPlayer3?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 4:
-                print("trying to play audio 4")
+//                print("trying to play audio 4")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -256,12 +258,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer4?.volume = 4.0
                     audioPlayer4?.prepareToPlay()
                     audioPlayer4?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 5:
-                print("trying to play audio 5")
+//                print("trying to play audio 5")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -270,12 +272,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer5?.volume = 4.0
                     audioPlayer5?.prepareToPlay()
                     audioPlayer5?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 6:
-                print("trying to play audio 6")
+//                print("trying to play audio 6")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -284,12 +286,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer6?.volume = 4.0
                     audioPlayer6?.prepareToPlay()
                     audioPlayer6?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 7:
-                print("trying to play audio 7")
+//                print("trying to play audio 7")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -298,12 +300,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer7?.volume = 4.0
                     audioPlayer7?.prepareToPlay()
                     audioPlayer7?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 8:
-                print("trying to play audio 8")
+//                print("trying to play audio 8")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -312,12 +314,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer8?.volume = 4.0
                     audioPlayer8?.prepareToPlay()
                     audioPlayer8?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 9:
-                print("trying to play audio 9")
+//                print("trying to play audio 9")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -326,12 +328,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer9?.volume = 4.0
                     audioPlayer9?.prepareToPlay()
                     audioPlayer9?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 10:
-                print("trying to play audio 10")
+//                print("trying to play audio 10")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -340,12 +342,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer10?.volume = 4.0
                     audioPlayer10?.prepareToPlay()
                     audioPlayer10?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 11:
-                print("trying to play audio 11")
+//                print("trying to play audio 11")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -354,12 +356,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer11?.volume = 4.0
                     audioPlayer11?.prepareToPlay()
                     audioPlayer11?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 12:
-                print("trying to play audio 12")
+//                print("trying to play audio 12")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -368,12 +370,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer12?.volume = 4.0
                     audioPlayer12?.prepareToPlay()
                     audioPlayer12?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 13:
-                print("trying to play audio 13")
+//                print("trying to play audio 13")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -382,12 +384,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer13?.volume = 4.0
                     audioPlayer13?.prepareToPlay()
                     audioPlayer13?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 14:
-                print("trying to play audio 14")
+//                print("trying to play audio 14")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -396,12 +398,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer14?.volume = 4.0
                     audioPlayer14?.prepareToPlay()
                     audioPlayer14?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 15:
-                print("trying to play audio 15")
+//                print("trying to play audio 15")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -410,12 +412,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer15?.volume = 4.0
                     audioPlayer15?.prepareToPlay()
                     audioPlayer15?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 16:
-                print("trying to play audio 16")
+//                print("trying to play audio 16")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -424,12 +426,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer16?.volume = 4.0
                     audioPlayer16?.prepareToPlay()
                     audioPlayer16?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 17:
-                print("trying to play audio 17")
+//                print("trying to play audio 17")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -438,12 +440,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer17?.volume = 4.0
                     audioPlayer17?.prepareToPlay()
                     audioPlayer17?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 18:
-                print("trying to play audio 18")
+//                print("trying to play audio 18")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -457,7 +459,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     print(error.localizedDescription)
                }
             case 19:
-                print("trying to play audio 19")
+//                print("trying to play audio 19")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -466,12 +468,12 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer19?.volume = 4.0
                     audioPlayer19?.prepareToPlay()
                     audioPlayer19?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 20:
-                print("trying to play audio 20")
+//                print("trying to play audio 20")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
@@ -480,7 +482,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     audioPlayer20?.volume = 4.0
                     audioPlayer20?.prepareToPlay()
                     audioPlayer20?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+//                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
@@ -504,14 +506,15 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             self.recordingSession.requestRecordPermission() { allowed in
                 DispatchQueue.main.async {
                     if allowed {
-                        print("success recording")
+                        return
                     } else {
-                        print("failed to record")
+                        return
                     }
                 }
             }
         } catch {
-            print("failure getting permission")
+//            print("failure getting permission")
+            return
         }
     }
     
@@ -520,9 +523,10 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         
         if audioRecorder1 == nil {
             //already stopped
-            print("already stopped 1")
+            return
+//            print("already stopped 1")
         } else {
-            print("Stopping recording 1")
+//            print("Stopping recording 1")
             audioRecorder1.stop()
             audioRecorder1 = nil
             self.recordingView.recordingTearDown()
@@ -536,7 +540,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     @IBAction func startRecording(_ sender: UIButton) {
         let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 
-        if sender.backgroundColor == UIColor.green {
+        if sender.backgroundColor == playSoundBtnClr {
             playAudio(sender: sender)
         } else {
             if self.audioRecorder1 == nil {
@@ -555,7 +559,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                     self.recordingView.recordingSetup()
                                     self.countDownLbl.labelViewSetup()
                                     
-                                    print("should be recordign")
+//                                    print("should be recordign")
                                     let audioFilename = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
                                     self.audioFileUrl = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
                 
@@ -573,19 +577,20 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                         try self.recordingSession.setActive(true)
                                         self.audioRecorder1 = try AVAudioRecorder(url: audioFilename, settings: settings)
                                         self.audioRecorder1.delegate = self
-                                        print("recording now....")
+//                                        print("recording now....")
                                         self.audioRecorder1.prepareToRecord()
                                         self.audioRecorder1.record()
                                         
                                         //openDatabse(fileName: "/recording\(sender.tag).m4a") //saves audio file to core data
                                         saveData(sender: sender.tag, fileName: "/recording\(sender.tag).m4a")
                                         
-                                        sender.backgroundColor = UIColor.green
+                                        sender.backgroundColor = playSoundBtnClr
                                         sender.setTitle("Play", for: .normal)
                                         sender.setTitleColor(UIColor.black, for: .normal)
                                         
-                                    } catch let err {
-                                        print("Error recording \(err)")
+                                    } catch _ {
+//                                        print("Error recording \(err)")
+                                        return
                                     }
                                 })
                             })
@@ -593,7 +598,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     })
                 })
             } else {
-                print("ERROR -> Had to stop recording (startRecording, ibaciton)")
+                return
+//                print("ERROR -> Had to stop recording (startRecording, ibaciton)")
             }
         }
     }
@@ -611,7 +617,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         let docDir = dirPath[0]
         let soundFilePath = (docDir as NSString).appendingPathComponent(audioNameWithExtension)
         let soundFileURL = NSURL(fileURLWithPath: soundFilePath)
-        print(soundFilePath)
+//        print(soundFilePath)
         return soundFileURL as URL
 
     }
@@ -642,16 +648,18 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         self.audioPlayer20 = AVAudioPlayer()
         
         self.audioRecorder1 = AVAudioRecorder()
-        overrideUserInterfaceStyle = .light
-        
+        self.helpBtn.layer.cornerRadius = 8
+        self.stopRecordingBtn.layer.cornerRadius = 8
+
         self.title = "Sound Pad"
+        
         self.helpBtn.layer.cornerRadius = 8
         if #available(iOS 13.0, *) {
             navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         } else {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         }
-        
+    
         checkAttribute(sender: self.btn1)
         checkAttribute(sender: self.btn2)
         checkAttribute(sender: self.btn3)
@@ -674,7 +682,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         checkAttribute(sender: self.btn20)
         
     }
-    
+
     //MARK: Check Attr
     func checkAttribute(sender:UIButton) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {
@@ -687,7 +695,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             let fr = try managedContext.fetch(fetchRequest) as? [NSManagedObject]
             
             if fr!.count > 0 {
-                sender.backgroundColor = UIColor.green
+                sender.backgroundColor = playSoundBtnClr
                 sender.setTitle("Play", for: .normal)
             } else {
                 sender.backgroundColor = UIColor.white
@@ -705,10 +713,10 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             DispatchQueue.main.async { [self] in
                 if allowed {
                     //allowed
-                    print("allowed to record")
+//                    print("allowed to record")
                     self.view.isUserInteractionEnabled = true
                 } else {
-                    print("not allowed to record")
+//                    print("not allowed to record")
                     self.view.isUserInteractionEnabled = false
                     self.performSegue(withIdentifier: "disabled", sender: self)
                 }
@@ -743,5 +751,24 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     @IBAction func helpBtnAction(_ sender: Any) {
         self.performSegue(withIdentifier: "help", sender: self)
     }
-}
 
+}
+//
+//extension UIView {
+//
+//    func addGradient(colors: [UIColor] = [#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1), #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)], locations: [NSNumber] = [0, 2], startPoint: CGPoint = CGPoint(x: 0.0, y: 1.0), endPoint: CGPoint = CGPoint(x: 1.0, y: 1.0), type: CAGradientLayerType = .axial){
+//
+//        let gradient = CAGradientLayer()
+//
+//        gradient.frame.size = self.frame.size
+//        gradient.frame.origin = CGPoint(x: 0.0, y: 0.0)
+//
+//        gradient.colors = colors.map{ $0.cgColor }
+//
+//        gradient.locations = locations
+//        gradient.startPoint = startPoint
+//        gradient.endPoint = endPoint
+//
+//        self.layer.insertSublayer(gradient, at: 0)
+//    }
+//}

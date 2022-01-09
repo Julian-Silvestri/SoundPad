@@ -9,7 +9,7 @@ import UIKit
 
 @IBDesignable
 class CustomButton: UIButton {
-    let textColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
+    let textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setupBtn()
@@ -24,7 +24,7 @@ class CustomButton: UIButton {
     
     func setupBtn(){
         layer.cornerRadius = 8
-        layer.borderWidth = 1
+        layer.borderWidth = 1.5
         layer.borderColor = UIColor.black.cgColor
         setTitle("Record", for: .normal)
         setTitleColor(textColor, for: .normal)

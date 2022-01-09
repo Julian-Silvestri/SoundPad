@@ -10,9 +10,11 @@ import UIKit
 
 class HelpVC: UIViewController {
 
+    @IBOutlet weak var deleteRecordingsBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light
+        overrideUserInterfaceStyle = .dark
+        self.deleteRecordingsBtn.layer.cornerRadius = 8
     }
     @IBAction func deleteBtnAction(_ sender: Any) {
         self.performSegue(withIdentifier: "delete", sender: self)
