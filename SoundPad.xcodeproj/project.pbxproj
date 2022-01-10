@@ -196,7 +196,6 @@
 				08BE21D12774FDEA001956CD /* Sources */,
 				08BE21D22774FDEA001956CD /* Frameworks */,
 				08BE21D32774FDEA001956CD /* Resources */,
-				08CCB18B278A6B900089F5BA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -312,26 +311,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		08CCB18B278A6B900089F5BA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$PRODUCT_SETTINGS_PATH\")\nbuildNumber=$(cut -d'.' -f2 <<<$buildNumber)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$PRODUCT_SETTINGS_PATH\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08BE21D12774FDEA001956CD /* Sources */ = {
@@ -533,7 +512,7 @@
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SoundPad/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the micropone. ";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will be using your microphone to record audio. These recordings are saved locally on your phone and will not be distributed by this application or any third party. ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -545,7 +524,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -565,7 +544,7 @@
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SoundPad/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the micropone. ";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will be using your microphone to record audio. These recordings are saved locally on your phone and will not be distributed by this application or any third party. ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -577,7 +556,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -74,26 +74,31 @@ class DeleteVC: UIViewController {
     
     //MARK: Delete All Recordings
     @IBAction func deleteAllRecordings(_ sender: UIButton) {
-        let managedContext = appDelegate!.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sounds")
-        fetchRequest.returnsObjectsAsFaults = false
-        do {
-            
-            let sounds = try managedContext.fetch(fetchRequest)
-            for values in sounds as! [NSManagedObject] {
-                managedContext.delete(values)
-            }
+        
+        basicAlert(sender: sender, completionHandler: { [self]finished in
+            if finished == true {
+                let managedContext = appDelegate!.persistentContainer.viewContext
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sounds")
+                fetchRequest.returnsObjectsAsFaults = false
+                do {
+                    
+                    let sounds = try managedContext.fetch(fetchRequest)
+                    for values in sounds as! [NSManagedObject] {
+                        managedContext.delete(values)
+                    }
 
-            try managedContext.save()
-            
-            basicAlert(sender: sender)
-            checkRecordings()
-            self.deleteAllBtn.isUserInteractionEnabled = false
-            
-            
-            } catch let error as NSError {
-                print("delete fail--",error)
-          }
+                    try managedContext.save()
+
+                    checkRecordings()
+                    self.deleteAllBtn.isUserInteractionEnabled = false
+                    
+                    } catch let error as NSError {
+                        print("delete fail--",error)
+                  }
+            } else {
+                return
+            }
+        })
     }
     
     //MARK: Load Delete VC
@@ -192,40 +197,50 @@ class DeleteVC: UIViewController {
     
     //MARK: Delete Recording from core data
     func deleteRecording(sender: UIButton){
-        guard let managedContext = appDelegate?.persistentContainer.viewContext else {
-            return
-        }
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Sounds")
-        fetchRequest.predicate = NSPredicate(format: "recording\(sender.tag) = %@", "/recording\(sender.tag).m4a")
+    
+        basicAlert(sender: sender, completionHandler: {finished in
+            if finished == true {
+                guard let managedContext = appDelegate?.persistentContainer.viewContext else {
+                    return
+                }
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Sounds")
+                fetchRequest.predicate = NSPredicate(format: "recording\(sender.tag) = %@", "/recording\(sender.tag).m4a")
 
-        do {
-            let fetchedResults =  try managedContext.fetch(fetchRequest) as? [NSManagedObject]
-
-            for entity in fetchedResults! {
-                
-                managedContext.delete(entity)
-                
                 do {
-                    try managedContext.save()
-                    basicAlert(sender: sender)
+                    let fetchedResults =  try managedContext.fetch(fetchRequest) as? [NSManagedObject]
+
+                    for entity in fetchedResults! {
+                        
+                        managedContext.delete(entity)
+                        
+                        do {
+                            try managedContext.save()
+                            
+                        }
+                        catch let err{
+                            print(err.localizedDescription)
+                        }
+                    }
+                } catch _ {
+        //            print("Could not delete")
+                    return
                 }
-                catch let err{
-                    print(err.localizedDescription)
-                }
+            } else {
+                return
             }
-        } catch _ {
-//            print("Could not delete")
-            return
-        }
+        })
+        
+
     }
     
-    func basicAlert(sender: UIButton){
+    func basicAlert(sender: UIButton, completionHandler: @escaping(Bool) ->Void){
         let alert = UIAlertController(title: "Are You Sure?", message: "Do you want to delete?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             switch action.style{
                 case .default:
 //                    print("default")
                     self.checkRecordings()
+                    completionHandler(true)
                 default:
                     return
 //                    print("error")
@@ -235,6 +250,7 @@ class DeleteVC: UIViewController {
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {action in
             switch action.style{
                 case .default:
+                    completionHandler(false)
                     return
                 case .cancel:
                     return

@@ -17,7 +17,7 @@ class CountDownLabels: UILabel {
         textColor = .black
         
         text = "Recording"
-    }
+    } 
     
     func labelViewTearDown(){
         textColor = .black

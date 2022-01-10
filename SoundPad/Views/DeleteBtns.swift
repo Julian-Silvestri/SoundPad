@@ -21,7 +21,7 @@ class DeleteBtns: UIButton {
     }
     
     func noRecordings(){
-        titleLabel?.font = .systemFont(ofSize: 10)
+        titleLabel?.font = .systemFont(ofSize: 9)
         backgroundColor = #colorLiteral(red: 0.2692032158, green: 0.2544137537, blue: 0.2503143549, alpha: 1)
         setTitle("No Recording", for: .normal)
         setTitleColor(UIColor.white, for: .normal)

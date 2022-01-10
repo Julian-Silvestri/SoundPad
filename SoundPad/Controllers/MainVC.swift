@@ -196,7 +196,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     //MARK: Play Audio
     func playAudio(sender: UIButton) {
-
+        self.helpBtn.isUserInteractionEnabled = true
         self.audioFileUrl = getAudioRecorded(sender: sender, audioNameWithExtension: "recording\(sender.tag).m4a")
         stopAllPlayers()
         
@@ -209,8 +209,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer1 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
-                    
-                    
                     audioPlayer1?.delegate = self
                     audioPlayer1?.volume = 4.0
                     audioPlayer1?.prepareToPlay()
@@ -520,7 +518,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     //MARK: Stop Recording
     @IBAction func stopRecording(_ sender: UIButton) {
-        
+        self.helpBtn.isUserInteractionEnabled = true
         if audioRecorder1 == nil {
             //already stopped
             return
@@ -531,13 +529,15 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             audioRecorder1 = nil
             self.recordingView.recordingTearDown()
             self.countDownLbl.labelViewTearDown()
-//            recordingViewTearDown()
+            
             
         }
     }
     
     //MARK: Start Recording
     @IBAction func startRecording(_ sender: UIButton) {
+        self.helpBtn.isUserInteractionEnabled = false
+        self.stopRecordingBtn.isUserInteractionEnabled = false
         let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 
         if sender.backgroundColor == playSoundBtnClr {
@@ -554,10 +554,11 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                             self.countDownLbl.text = "2"
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                                 self.countDownLbl.text = "1"
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [self] in
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [self] in
 
                                     self.recordingView.recordingSetup()
                                     self.countDownLbl.labelViewSetup()
+                                    
                                     
 //                                    print("should be recordign")
                                     let audioFilename = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
@@ -587,7 +588,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
                                         sender.backgroundColor = playSoundBtnClr
                                         sender.setTitle("Play", for: .normal)
                                         sender.setTitleColor(UIColor.black, for: .normal)
-                                        
+                                        self.stopRecordingBtn.isUserInteractionEnabled = true
                                     } catch _ {
 //                                        print("Error recording \(err)")
                                         return
@@ -650,6 +651,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         self.audioRecorder1 = AVAudioRecorder()
         self.helpBtn.layer.cornerRadius = 8
         self.stopRecordingBtn.layer.cornerRadius = 8
+        self.countDownLbl.textColor = UIColor.black
 
         self.title = "Sound Pad"
         
