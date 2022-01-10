@@ -538,6 +538,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     @IBAction func startRecording(_ sender: UIButton) {
         self.helpBtn.isUserInteractionEnabled = false
         self.stopRecordingBtn.isUserInteractionEnabled = false
+        
         let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 
         if sender.backgroundColor == playSoundBtnClr {
