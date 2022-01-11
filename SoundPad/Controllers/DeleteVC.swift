@@ -221,6 +221,9 @@ class DeleteVC: UIViewController {
                             print(err.localizedDescription)
                         }
                     }
+                    
+                    self.checkRecordings()
+                    
                 } catch _ {
         //            print("Could not delete")
                     return
