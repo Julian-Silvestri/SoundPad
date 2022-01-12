@@ -14,6 +14,7 @@
 		0864BDBB27765B260085B527 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0864BDBA27765B260085B527 /* CustomButton.swift */; };
 		0890318727781E7C00009A65 /* DisabledVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890318627781E7B00009A65 /* DisabledVC.swift */; };
 		089031892778273000009A65 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089031882778273000009A65 /* HelpVC.swift */; };
+		08ABB3EA278E6B3C0055C31A /* FunctionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABB3E9278E6B3C0055C31A /* FunctionFile.swift */; };
 		08BE21D92774FDEA001956CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21D82774FDEA001956CD /* AppDelegate.swift */; };
 		08BE21DB2774FDEA001956CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21DA2774FDEA001956CD /* SceneDelegate.swift */; };
 		08BE21DD2774FDEA001956CD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21DC2774FDEA001956CD /* MainVC.swift */; };
@@ -52,6 +53,7 @@
 		0864BDBA27765B260085B527 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0890318627781E7B00009A65 /* DisabledVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledVC.swift; sourceTree = "<group>"; };
 		089031882778273000009A65 /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
+		08ABB3E9278E6B3C0055C31A /* FunctionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionFile.swift; sourceTree = "<group>"; };
 		08BE21D52774FDEA001956CD /* SoundPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BE21D82774FDEA001956CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08BE21DA2774FDEA001956CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				0890318627781E7B00009A65 /* DisabledVC.swift */,
 				089031882778273000009A65 /* HelpVC.swift */,
 				081C4F812788B819007E2485 /* DeleteVC.swift */,
+				08ABB3E9278E6B3C0055C31A /* FunctionFile.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				08BE21E32774FDEA001956CD /* SoundPad.xcdatamodeld in Sources */,
 				081C4F7E2785D464007E2485 /* RecordingView.swift in Sources */,
 				081C4F802785D4D5007E2485 /* CountDownLabels.swift in Sources */,
+				08ABB3EA278E6B3C0055C31A /* FunctionFile.swift in Sources */,
 				0890318727781E7C00009A65 /* DisabledVC.swift in Sources */,
 				0864BDBB27765B260085B527 /* CustomButton.swift in Sources */,
 				08EB1991277A4B2400837684 /* Model.swift in Sources */,
@@ -524,7 +528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -556,7 +560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

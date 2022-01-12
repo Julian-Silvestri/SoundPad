@@ -194,303 +194,413 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         }
     }
     
+    func askToLoopAudioBeforePlay(sender: UIButton){
+        basicAlert(vc: self, titleOfAlert: "Lopp this track?", messageOfAlert: "Would you like to loop this track?", sender: sender, completionHandler: {success in
+            if success == true {
+                self.playAudio(sender: sender, repeatTrack: true)
+            } else {
+                self.playAudio(sender: sender, repeatTrack: false)
+            }
+        })
+    }
+    
     //MARK: Play Audio
-    func playAudio(sender: UIButton) {
+    func playAudio(sender: UIButton, repeatTrack: Bool) {
         self.helpBtn.isUserInteractionEnabled = true
         self.audioFileUrl = getAudioRecorded(sender: sender, audioNameWithExtension: "recording\(sender.tag).m4a")
-        stopAllPlayers()
+    
+        sender.backgroundColor = UIColor.orange
+        sender.setTitle("Stop", for: .normal)
         
-        if self.audioRecorder1 == nil {
-            
-            switch sender.tag {
+        switch sender.tag {
             case 1:
-//                print("trying to play audio 1")
+    //                print("trying to play audio 1")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer1 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer1?.delegate = self
-                    audioPlayer1?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer1?.numberOfLoops = -1
+                    } else {
+                        audioPlayer1?.numberOfLoops = 0
+                    }
+                    audioPlayer1?.volume = 2.0
                     audioPlayer1?.prepareToPlay()
                     audioPlayer1?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+                    
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
                     
             case 2:
-//                print("trying to play audio 2")
+    //                print("trying to play audio 2")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer2 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer2?.delegate = self
-                    audioPlayer2?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer2?.numberOfLoops = -1
+                    } else {
+                        audioPlayer2?.numberOfLoops = 0
+                    }
+                    audioPlayer2?.volume = 2.0
                     audioPlayer2?.prepareToPlay()
                     audioPlayer2?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 3:
-//                print("trying to play audio 3")
+    //                print("trying to play audio 3")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer3 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer3?.delegate = self
-                    audioPlayer3?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer3?.numberOfLoops = -1
+                    } else {
+                        audioPlayer3?.numberOfLoops = 0
+                    }
+                    audioPlayer3?.volume = 2.0
                     audioPlayer3?.prepareToPlay()
                     audioPlayer3?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 4:
-//                print("trying to play audio 4")
+    //                print("trying to play audio 4")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer4 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer4?.delegate = self
-                    audioPlayer4?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer4?.numberOfLoops = -1
+                    } else {
+                        audioPlayer4?.numberOfLoops = 0
+                    }
+                    audioPlayer4?.volume = 2.0
                     audioPlayer4?.prepareToPlay()
                     audioPlayer4?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 5:
-//                print("trying to play audio 5")
+    //                print("trying to play audio 5")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer5 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer5?.delegate = self
-                    audioPlayer5?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer5?.numberOfLoops = -1
+                    } else {
+                        audioPlayer5?.numberOfLoops = 0
+                    }
+                    audioPlayer5?.volume = 2.0
                     audioPlayer5?.prepareToPlay()
                     audioPlayer5?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 6:
-//                print("trying to play audio 6")
+    //                print("trying to play audio 6")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer6 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer6?.delegate = self
-                    audioPlayer6?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer6?.numberOfLoops = -1
+                    } else {
+                        audioPlayer6?.numberOfLoops = 0
+                    }
+                    audioPlayer6?.volume = 2.0
                     audioPlayer6?.prepareToPlay()
                     audioPlayer6?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 7:
-//                print("trying to play audio 7")
+    //                print("trying to play audio 7")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer7 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer7?.delegate = self
-                    audioPlayer7?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer7?.numberOfLoops = -1
+                    } else {
+                        audioPlayer7?.numberOfLoops = 0
+                    }
+                    audioPlayer7?.volume = 2.0
                     audioPlayer7?.prepareToPlay()
                     audioPlayer7?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 8:
-//                print("trying to play audio 8")
+    //                print("trying to play audio 8")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer8 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer8?.delegate = self
-                    audioPlayer8?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer8?.numberOfLoops = -1
+                    } else {
+                        audioPlayer8?.numberOfLoops = 0
+                    }
+                    audioPlayer8?.volume = 2.0
                     audioPlayer8?.prepareToPlay()
                     audioPlayer8?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 9:
-//                print("trying to play audio 9")
+    //                print("trying to play audio 9")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer9 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer9?.delegate = self
-                    audioPlayer9?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer9?.numberOfLoops = -1
+                    } else {
+                        audioPlayer9?.numberOfLoops = 0
+                    }
+                    audioPlayer9?.volume = 2.0
                     audioPlayer9?.prepareToPlay()
                     audioPlayer9?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 10:
-//                print("trying to play audio 10")
+    //                print("trying to play audio 10")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer10 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer10?.delegate = self
-                    audioPlayer10?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer10?.numberOfLoops = -1
+                    } else {
+                        audioPlayer10?.numberOfLoops = 0
+                    }
+                    audioPlayer10?.volume = 2.0
                     audioPlayer10?.prepareToPlay()
                     audioPlayer10?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 11:
-//                print("trying to play audio 11")
+    //                print("trying to play audio 11")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer11 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer11?.delegate = self
-                    audioPlayer11?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer11?.numberOfLoops = -1
+                    } else {
+                        audioPlayer11?.numberOfLoops = 0
+                    }
+                    audioPlayer11?.volume = 2.0
                     audioPlayer11?.prepareToPlay()
                     audioPlayer11?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 12:
-//                print("trying to play audio 12")
+    //                print("trying to play audio 12")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer12 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer12?.delegate = self
-                    audioPlayer12?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer12?.numberOfLoops = -1
+                    } else {
+                        audioPlayer12?.numberOfLoops = 0
+                    }
+                    audioPlayer12?.volume = 2.0
                     audioPlayer12?.prepareToPlay()
                     audioPlayer12?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 13:
-//                print("trying to play audio 13")
+    //                print("trying to play audio 13")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer13 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer13?.delegate = self
-                    audioPlayer13?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer13?.numberOfLoops = -1
+                    } else {
+                        audioPlayer13?.numberOfLoops = 0
+                    }
+                    audioPlayer13?.volume = 2.0
                     audioPlayer13?.prepareToPlay()
                     audioPlayer13?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 14:
-//                print("trying to play audio 14")
+    //                print("trying to play audio 14")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer14 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer14?.delegate = self
-                    audioPlayer14?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer14?.numberOfLoops = -1
+                    } else {
+                        audioPlayer14?.numberOfLoops = 0
+                    }
+                    audioPlayer14?.volume = 2.0
                     audioPlayer14?.prepareToPlay()
                     audioPlayer14?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 15:
-//                print("trying to play audio 15")
+    //                print("trying to play audio 15")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer15 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer15?.delegate = self
-                    audioPlayer15?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer15?.numberOfLoops = -1
+                    } else {
+                        audioPlayer15?.numberOfLoops = 0
+                    }
+                    audioPlayer15?.volume = 2.0
                     audioPlayer15?.prepareToPlay()
                     audioPlayer15?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 16:
-//                print("trying to play audio 16")
+    //                print("trying to play audio 16")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer16 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer16?.delegate = self
-                    audioPlayer16?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer16?.numberOfLoops = -1
+                    } else {
+                        audioPlayer16?.numberOfLoops = 0
+                    }
+                    audioPlayer16?.volume = 2.0
                     audioPlayer16?.prepareToPlay()
                     audioPlayer16?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 17:
-//                print("trying to play audio 17")
+    //                print("trying to play audio 17")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer17 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
                     audioPlayer17?.delegate = self
-                    audioPlayer17?.volume = 4.0
+                    if repeatTrack == true {
+                        audioPlayer17?.numberOfLoops = -1
+                    } else {
+                        audioPlayer17?.numberOfLoops = 0
+                    }
+                    audioPlayer17?.volume = 2.0
                     audioPlayer17?.prepareToPlay()
                     audioPlayer17?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 18:
-//                print("trying to play audio 18")
+    //                print("trying to play audio 18")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer18 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
+                    if repeatTrack == true {
+                        audioPlayer18?.numberOfLoops = -1
+                    } else {
+                        audioPlayer18?.numberOfLoops = 0
+                    }
                     audioPlayer18?.delegate = self
-                    audioPlayer18?.volume = 4.0
+                    audioPlayer18?.volume = 2.0
                     audioPlayer18?.prepareToPlay()
                     audioPlayer18?.play()
-                    print("PLAYING::::: \(audioFileUrl)")
+                    
+                    //print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 19:
-//                print("trying to play audio 19")
+    //                print("trying to play audio 19")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer19 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
+                    if repeatTrack == true {
+                        audioPlayer19?.numberOfLoops = -1
+                    } else {
+                        audioPlayer19?.numberOfLoops = 0
+                    }
                     audioPlayer19?.delegate = self
-                    audioPlayer19?.volume = 4.0
+                    audioPlayer19?.volume = 2.0
                     audioPlayer19?.prepareToPlay()
                     audioPlayer19?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
             case 20:
-//                print("trying to play audio 20")
+    //                print("trying to play audio 20")
                 do {
                     try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                     try AVAudioSession.sharedInstance().setActive(true)
                     audioPlayer20 = try AVAudioPlayer(contentsOf: audioFileUrl, fileTypeHint: AVFileType.m4a.rawValue)
+                    if repeatTrack == true {
+                        audioPlayer20?.numberOfLoops = -1
+                    } else {
+                        audioPlayer20?.numberOfLoops = 0
+                    }
                     audioPlayer20?.delegate = self
-                    audioPlayer20?.volume = 4.0
+                    audioPlayer20?.volume = 2.0
                     audioPlayer20?.prepareToPlay()
                     audioPlayer20?.play()
-//                    print("PLAYING::::: \(audioFileUrl)")
+                    
+    //                    print("PLAYING::::: \(audioFileUrl)")
                } catch let error {
                     print(error.localizedDescription)
                }
+        
 
-            default:
-                print("ERRRRRRRRRR")
-            }
-            
-        } else {
-            print("cannot play, recorder is running")
+        default:
+            print("ERRRRRRRRRR")
         }
     }
 
@@ -536,15 +646,20 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     //MARK: Start Recording
     @IBAction func startRecording(_ sender: UIButton) {
-        self.helpBtn.isUserInteractionEnabled = false
-        self.stopRecordingBtn.isUserInteractionEnabled = false
         
         let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-
+        
         if sender.backgroundColor == playSoundBtnClr {
-            playAudio(sender: sender)
+            askToLoopAudioBeforePlay(sender: sender)
+            //playAudio(sender: sender , repeatTrack: true)
+        } else if sender.backgroundColor == UIColor.orange {
+            stopPlayer(sender: sender)
         } else {
+            
             if self.audioRecorder1 == nil {
+                stopAllPlayers()
+                self.helpBtn.isUserInteractionEnabled = false
+                self.stopRecordingBtn.isUserInteractionEnabled = false
                 UIView.animate(withDuration: 0.5, animations: {
                     self.recordingView.alpha = 1
                 }, completion: { _ in
@@ -559,7 +674,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
                                     self.recordingView.recordingSetup()
                                     self.countDownLbl.labelViewSetup()
-                                    
                                     
 //                                    print("should be recordign")
                                     let audioFilename = documentDirURL.appendingPathComponent("recording\(sender.tag).m4a")
@@ -726,9 +840,93 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             }
         }
     }
-
-    //MARK: Stop All Players
+    
+    //MARK: Stop ALL Players
     func stopAllPlayers(){
+        
+        self.helpBtn.isUserInteractionEnabled = true
+        
+        if self.btn1.backgroundColor == UIColor.orange {
+            self.btn1.backgroundColor = playSoundBtnClr
+            self.btn1.setTitle("Play", for: .normal)
+        }
+        if self.btn2.backgroundColor == UIColor.orange {
+            self.btn2.setTitle("Play", for: .normal)
+            self.btn2.backgroundColor = playSoundBtnClr
+        }
+        if self.btn3.backgroundColor == UIColor.orange {
+            self.btn3.backgroundColor = playSoundBtnClr
+            self.btn3.setTitle("Play", for: .normal)
+        }
+        if self.btn4.backgroundColor == UIColor.orange {
+            self.btn4.setTitle("Play", for: .normal)
+            self.btn4.backgroundColor = playSoundBtnClr
+        }
+        if self.btn5.backgroundColor == UIColor.orange {
+            self.btn5.setTitle("Play", for: .normal)
+            self.btn5.backgroundColor = playSoundBtnClr
+        }
+        if self.btn6.backgroundColor == UIColor.orange {
+            self.btn6.setTitle("Play", for: .normal)
+            self.btn6.backgroundColor = playSoundBtnClr
+        }
+        if self.btn7.backgroundColor == UIColor.orange {
+            self.btn7.setTitle("Play", for: .normal)
+            self.btn7.backgroundColor = playSoundBtnClr
+        }
+        if self.btn8.backgroundColor == UIColor.orange {
+            self.btn8.setTitle("Play", for: .normal)
+            self.btn8.backgroundColor = playSoundBtnClr
+        }
+        if self.btn9.backgroundColor == UIColor.orange {
+            self.btn9.setTitle("Play", for: .normal)
+            self.btn9.backgroundColor = playSoundBtnClr
+        }
+        if self.btn10.backgroundColor == UIColor.orange {
+            self.btn10.setTitle("Play", for: .normal)
+            self.btn10.backgroundColor = playSoundBtnClr
+        }
+        if self.btn11.backgroundColor == UIColor.orange {
+            self.btn11.setTitle("Play", for: .normal)
+            self.btn11.backgroundColor = playSoundBtnClr
+        }
+        if self.btn12.backgroundColor == UIColor.orange {
+            self.btn12.setTitle("Play", for: .normal)
+            self.btn12.backgroundColor = playSoundBtnClr
+        }
+        if self.btn13.backgroundColor == UIColor.orange {
+            self.btn13.setTitle("Play", for: .normal)
+            self.btn13.backgroundColor = playSoundBtnClr
+        }
+        if self.btn14.backgroundColor == UIColor.orange {
+            self.btn14.setTitle("Play", for: .normal)
+            self.btn14.backgroundColor = playSoundBtnClr
+        }
+        if self.btn15.backgroundColor == UIColor.orange {
+            self.btn15.setTitle("Play", for: .normal)
+            self.btn15.backgroundColor = playSoundBtnClr
+        }
+        if self.btn16.backgroundColor == UIColor.orange {
+            self.btn16.setTitle("Play", for: .normal)
+            self.btn16.backgroundColor = playSoundBtnClr
+        }
+        if self.btn17.backgroundColor == UIColor.orange {
+            self.btn17.setTitle("Play", for: .normal)
+            self.btn17.backgroundColor = playSoundBtnClr
+        }
+        if self.btn18.backgroundColor == UIColor.orange {
+            self.btn18.setTitle("Play", for: .normal)
+            self.btn18.backgroundColor = playSoundBtnClr
+        }
+        if self.btn19.backgroundColor == UIColor.orange {
+            self.btn19.setTitle("Play", for: .normal)
+            self.btn19.backgroundColor = playSoundBtnClr
+        }
+        if self.btn20.backgroundColor == UIColor.orange {
+            self.btn20.setTitle("Play", for: .normal)
+            self.btn20.backgroundColor = playSoundBtnClr
+        }
+        
         audioPlayer1?.stop()
         audioPlayer2?.stop()
         audioPlayer3?.stop()
@@ -750,12 +948,145 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         audioPlayer19?.stop()
         audioPlayer20?.stop()
     }
+
+    //MARK: Stop Player
+    func stopPlayer(sender: UIButton){
+        self.helpBtn.isUserInteractionEnabled = true
+        sender.setTitle("Play", for: .normal)
+        sender.backgroundColor = playSoundBtnClr
+        switch sender.tag {
+        case 1:
+            audioPlayer1?.stop()
+        case 2:
+            audioPlayer2?.stop()
+        case 3:
+            audioPlayer3?.stop()
+        case 4:
+            audioPlayer4?.stop()
+        case 5:
+            audioPlayer5?.stop()
+        case 6:
+            audioPlayer6?.stop()
+        case 7:
+            audioPlayer7?.stop()
+        case 8:
+            audioPlayer8?.stop()
+        case 9:
+            audioPlayer9?.stop()
+        case 10:
+            audioPlayer10?.stop()
+        case 11:
+            audioPlayer11?.stop()
+        case 12:
+            audioPlayer12?.stop()
+        case 13:
+            audioPlayer13?.stop()
+        case 14:
+            audioPlayer14?.stop()
+        case 15:
+            audioPlayer15?.stop()
+        case 16:
+            audioPlayer16?.stop()
+        case 17:
+            audioPlayer17?.stop()
+        case 18:
+            audioPlayer18?.stop()
+        case 19:
+            audioPlayer19?.stop()
+        case 20:
+            audioPlayer20?.stop()
+        default:
+            return
+        }
+
+
+
+    }
     
     @IBAction func helpBtnAction(_ sender: Any) {
+        stopAllPlayers()
         self.performSegue(withIdentifier: "help", sender: self)
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag {
+            // After successfully finish song playing will stop audio player and remove from memory
+            
+            if player == self.audioPlayer1 {
+                self.btn1.backgroundColor = playSoundBtnClr
+                self.btn1.setTitle("Play", for: .normal)
+            } else if player == self.audioPlayer2 {
+                self.btn2.backgroundColor = playSoundBtnClr
+                self.btn2.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer3 {
+                self.btn3.backgroundColor = playSoundBtnClr
+                self.btn3.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer4 {
+                self.btn4.backgroundColor = playSoundBtnClr
+                self.btn4.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer5 {
+                self.btn5.backgroundColor = playSoundBtnClr
+                self.btn5.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer6 {
+                self.btn6.backgroundColor = playSoundBtnClr
+                self.btn6.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer7 {
+                self.btn7.backgroundColor = playSoundBtnClr
+                self.btn7.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer8 {
+                self.btn8.backgroundColor = playSoundBtnClr
+                self.btn8.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer9 {
+                self.btn9.backgroundColor = playSoundBtnClr
+                self.btn9.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer10 {
+                self.btn10.backgroundColor = playSoundBtnClr
+                self.btn10.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer11 {
+                self.btn11.backgroundColor = playSoundBtnClr
+                self.btn11.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer12 {
+                self.btn12.backgroundColor = playSoundBtnClr
+                self.btn12.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer13 {
+                self.btn13.backgroundColor = playSoundBtnClr
+                self.btn13.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer14 {
+                self.btn14.backgroundColor = playSoundBtnClr
+                self.btn14.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer15 {
+                self.btn15.backgroundColor = playSoundBtnClr
+                self.btn15.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer16 {
+                self.btn16.backgroundColor = playSoundBtnClr
+                self.btn16.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer17 {
+                self.btn17.backgroundColor = playSoundBtnClr
+                self.btn17.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer18 {
+                self.btn18.backgroundColor = playSoundBtnClr
+                self.btn18.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer19 {
+                self.btn19.backgroundColor = playSoundBtnClr
+                self.btn19.setTitle("Play", for: .normal)
+            }else if player == self.audioPlayer20 {
+                self.btn20.backgroundColor = playSoundBtnClr
+                self.btn20.setTitle("Play", for: .normal)
+            } else {
+                print("failure")
+            }
+            
+            print("Audio player finished playing")
+            player.stop()
+            
+            
+            //player = nil
+            // Write code to play next audio.
+        }
     }
 
 }
+
 //
 //extension UIView {
 //

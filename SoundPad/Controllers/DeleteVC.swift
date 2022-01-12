@@ -75,7 +75,7 @@ class DeleteVC: UIViewController {
     //MARK: Delete All Recordings
     @IBAction func deleteAllRecordings(_ sender: UIButton) {
         
-        basicAlert(sender: sender, completionHandler: { [self]finished in
+        basicAlert(vc: self, titleOfAlert: "Delete All?", messageOfAlert: "Are you sure you want to delete all?",sender: sender, completionHandler: { [self]finished in
             if finished == true {
                 let managedContext = appDelegate!.persistentContainer.viewContext
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sounds")
@@ -89,7 +89,9 @@ class DeleteVC: UIViewController {
 
                     try managedContext.save()
 
-                    checkRecordings()
+                    DispatchQueue.main.async {
+                        self.checkRecordings()
+                    }
                     self.deleteAllBtn.isUserInteractionEnabled = false
                     
                     } catch let error as NSError {
@@ -198,7 +200,7 @@ class DeleteVC: UIViewController {
     //MARK: Delete Recording from core data
     func deleteRecording(sender: UIButton){
     
-        basicAlert(sender: sender, completionHandler: {finished in
+        basicAlert(vc: self, titleOfAlert:"Are You Sure?",messageOfAlert: "Do you want to delete?", sender: sender, completionHandler: {finished in
             if finished == true {
                 guard let managedContext = appDelegate?.persistentContainer.viewContext else {
                     return
@@ -212,13 +214,9 @@ class DeleteVC: UIViewController {
                     for entity in fetchedResults! {
                         
                         managedContext.delete(entity)
-                        
-                        do {
-                            try managedContext.save()
-                            
-                        }
-                        catch let err{
-                            print(err.localizedDescription)
+                        try managedContext.save()
+                        DispatchQueue.main.async {
+                            self.checkRecordings()
                         }
                     }
                     
@@ -236,33 +234,33 @@ class DeleteVC: UIViewController {
 
     }
     
-    func basicAlert(sender: UIButton, completionHandler: @escaping(Bool) ->Void){
-        let alert = UIAlertController(title: "Are You Sure?", message: "Do you want to delete?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            switch action.style{
-                case .default:
-//                    print("default")
-                    self.checkRecordings()
-                    completionHandler(true)
-                default:
-                    return
-//                    print("error")
-                
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {action in
-            switch action.style{
-                case .default:
-                    completionHandler(false)
-                    return
-                case .cancel:
-                    return
-                default:
-                    return
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
+//    func basicAlert(titleOfAlert: String, messageOfAlert: String, sender: UIButton, completionHandler: @escaping(Bool) ->Void){
+//        let alert = UIAlertController(title: titleOfAlert, message: messageOfAlert , preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+//            switch action.style{
+//                case .default:
+////                    print("default")
+//                    self.checkRecordings()
+//                    completionHandler(true)
+//                default:
+//                    return
+////                    print("error")
+//
+//            }
+//        }))
+//        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {action in
+//            switch action.style{
+//                case .default:
+//                    completionHandler(false)
+//                    return
+//                case .cancel:
+//                    return
+//                default:
+//                    return
+//            }
+//        }))
+//        self.present(alert, animated: true, completion: nil)
+//    }
 
     func enableBtns(){
         self.btn1.isUserInteractionEnabled = true
