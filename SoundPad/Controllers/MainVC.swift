@@ -8,10 +8,13 @@
 import UIKit
 import AVFoundation
 import CoreData
+import GoogleMobileAds
+import AppTrackingTransparency
+import AdSupport
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GADBannerViewDelegate  {
 
     //CUSTOM BTNS
     @IBOutlet weak var btn1: CustomButton!
@@ -86,6 +89,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     let playSoundBtnClr = #colorLiteral(red: 0.6, green: 0.7607843137, blue: 0.3019607843, alpha: 1)
     
+    let adSize = GADAdSizeFromCGSize(CGSize(width: 300, height: 50))
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -110,6 +114,16 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         btn18.tag = 18
         btn19.tag = 19
         btn20.tag = 20
+        // In this case, we instantiate the banner with desired ad size.
+        let bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        bannerView.delegate = self
+        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
+        print("************ ",getIDFA())
+        bannerView.load(GADRequest())
+        bannerView.rootViewController = self
+//        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
+        addBannerViewToView(bannerView)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -1084,7 +1098,71 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
             // Write code to play next audio.
         }
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        
+//      view.addConstraints(
+//        [NSLayoutConstraint(item: bannerView,
+//                            attribute: .bottom,
+//                            relatedBy: .equal,
+//                            toItem: view.safeAreaLayoutGuide.bottomAnchor,
+//                            attribute: .top,
+//                            multiplier: 1,
+//                            constant: 0),
+//         NSLayoutConstraint(item: bannerView,
+//                            attribute: .centerX,
+//                            relatedBy: .equal,
+//                            toItem: view,
+//                            attribute: .centerX,
+//                            multiplier: 1,
+//                            constant: 0)
+//        ])
+     }
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("bannerViewDidReceiveAd")
+    }
 
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
+    }
+
+    
+    func getIDFA() -> String? {
+        // Check whether advertising tracking is enabled
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus != ATTrackingManager.AuthorizationStatus.authorized  {
+                return nil
+            }
+        } else {
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled == false {
+                return nil
+            }
+        }
+        
+        print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
+
+        return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+    }
 }
 
 //
