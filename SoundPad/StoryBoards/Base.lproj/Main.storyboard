@@ -40,14 +40,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <variation key="heightClass=compact-widthClass=compact" spacing="98"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4XJ-DD-GzX">
-                                <rect key="frame" x="16" y="140" width="382" height="581"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4XJ-DD-GzX">
+                                <rect key="frame" x="16" y="140" width="382" height="531"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WIN-Mj-2lp">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="101.66666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="93.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqB-OQ-al3" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -55,7 +55,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IM-hj-DaT" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="96" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -63,7 +63,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg1-Es-oiu" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="192" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -71,7 +71,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN2-Vh-CNg" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="288" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -81,10 +81,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="b4h-if-yE6">
-                                        <rect key="frame" x="0.0" y="119.66666666666669" width="382" height="102"/>
+                                        <rect key="frame" x="0.0" y="109.33333333333334" width="382" height="93.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ2-m0-4fH" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -92,7 +92,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebh-fV-U3h" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="96" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -100,7 +100,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acq-3i-NcH" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="192" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -108,7 +108,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOj-l1-Mjo" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="288" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -118,10 +118,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bHg-5c-Lh5">
-                                        <rect key="frame" x="0.0" y="239.66666666666666" width="382" height="101.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="218.66666666666666" width="382" height="93.666666666666657"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvH-7T-duR" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="93.666666666666671"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -129,7 +129,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yr-YH-A0z" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="96" y="0.0" width="94" height="93.666666666666671"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -137,7 +137,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ss-Zu-DsD" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="192" y="0.0" width="94" height="93.666666666666671"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -145,7 +145,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2m-ab-phQ" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="288" y="0.0" width="94" height="93.666666666666671"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -155,10 +155,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SH0-0B-krS">
-                                        <rect key="frame" x="0.0" y="359.33333333333331" width="382" height="102"/>
+                                        <rect key="frame" x="0.0" y="328.33333333333331" width="382" height="93.333333333333314"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u61-G4-v0T" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -166,7 +166,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uim-cy-QBw" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="96" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -174,7 +174,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nJ-ic-B0Y" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="192" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -182,7 +182,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-yj-Xww" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="94" height="102"/>
+                                                <rect key="frame" x="288" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -192,10 +192,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ET7-HP-h9n">
-                                        <rect key="frame" x="0.0" y="479.33333333333343" width="382" height="101.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="437.66666666666663" width="382" height="93.333333333333371"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-gl-IJL" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -203,7 +203,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEN-J3-6XP" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="96" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="96" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -211,7 +211,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDt-xp-5OM" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="192" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -219,7 +219,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeX-0m-eAs" customClass="CustomButton" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="288" y="0.0" width="94" height="101.66666666666667"/>
+                                                <rect key="frame" x="288" y="0.0" width="94" height="93.333333333333329"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                 <connections>
@@ -236,7 +236,7 @@
                                 <rect key="frame" x="15" y="124" width="384" height="604"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEP-ed-ifT">
-                                        <rect key="frame" x="8" y="529" width="368" height="67"/>
+                                        <rect key="frame" x="8" y="472" width="368" height="67"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="67" id="97Z-nJ-Euc"/>
@@ -257,8 +257,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.92156862745098034" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="qEP-ed-ifT" secondAttribute="bottom" constant="8" id="1BV-bz-5Qf"/>
-                                    <constraint firstAttribute="bottom" secondItem="qEP-ed-ifT" secondAttribute="bottom" constant="8" id="4FX-va-io5"/>
+                                    <constraint firstAttribute="bottom" secondItem="qEP-ed-ifT" secondAttribute="bottom" constant="65" id="4FX-va-io5"/>
                                     <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="8" id="6cM-5Q-QTB"/>
                                     <constraint firstItem="3LB-fY-Px9" firstAttribute="centerY" secondItem="XRm-21-QZq" secondAttribute="centerY" id="7sj-st-sot"/>
                                     <constraint firstAttribute="trailing" secondItem="3LB-fY-Px9" secondAttribute="trailing" constant="8" id="Bn1-EL-qIx"/>
@@ -268,7 +267,7 @@
                                     <constraint firstItem="3LB-fY-Px9" firstAttribute="top" secondItem="XRm-21-QZq" secondAttribute="top" constant="8" id="Wrw-Zm-tFQ"/>
                                     <constraint firstAttribute="trailing" secondItem="qEP-ed-ifT" secondAttribute="trailing" constant="81" id="aPi-Cf-dTk"/>
                                     <constraint firstAttribute="trailing" secondItem="qEP-ed-ifT" secondAttribute="trailing" constant="8" id="hA1-tQ-fVg"/>
-                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="4" id="n6W-zP-jtT"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XRm-21-QZq" secondAttribute="leading" id="n6W-zP-jtT"/>
                                     <constraint firstItem="3LB-fY-Px9" firstAttribute="centerX" secondItem="XRm-21-QZq" secondAttribute="centerX" id="sR7-r8-Tqv"/>
                                 </constraints>
                                 <variation key="default">
@@ -311,7 +310,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4XJ-DD-GzX" secondAttribute="trailing" constant="16" id="pdW-z9-DXX"/>
                             <constraint firstItem="XRm-21-QZq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="uCp-hu-zEa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SbO-cl-5u2" secondAttribute="trailing" constant="15" id="uxs-9W-J2O"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4XJ-DD-GzX" secondAttribute="bottom" constant="15" id="z2w-OO-XZQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4XJ-DD-GzX" secondAttribute="bottom" constant="65" id="z2w-OO-XZQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -373,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.25" y="135"/>
+            <point key="canvasLocation" x="1136.231884057971" y="134.5108695652174"/>
         </scene>
         <!--Help-->
         <scene sceneID="77U-Fz-7AN">
@@ -384,7 +383,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0z-Rx-6g7">
-                                <rect key="frame" x="10" y="658" width="394" height="58"/>
+                                <rect key="frame" x="10" y="476" width="394" height="58"/>
                                 <color key="backgroundColor" red="1" green="0.66274509803921566" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="1n6-zu-xBM"/>
@@ -397,36 +396,39 @@
                                     <action selector="deleteBtnAction:" destination="NYk-uY-eiB" eventType="touchUpInside" id="BoL-O0-6FQ"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="54z-Yk-nBC">
-                                <rect key="frame" x="16" y="60" width="382" height="582"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="54z-Yk-nBC">
+                                <rect key="frame" x="16" y="60" width="382" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="747" text="1. Sound pad will record up to 20 custom recordings and save them for you. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Le1-Rh-U4P">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="3KK-vD-eyU"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Deleting the application and reinstalling will remove all saved recordings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-6N-pI5">
-                                        <rect key="frame" x="0.0" y="130" width="382" height="41"/>
+                                        <rect key="frame" x="0.0" y="80" width="382" height="80"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-At-3XB">
-                                        <rect key="frame" x="0.0" y="260.33333333333331" width="382" height="61.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="160" width="382" height="80"/>
                                         <string key="text">3. If you wish to delete all or some or one recordings tap the button bellow. The delete buttons are mapped respectively to each recording button.</string>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="4. Based on user feedback; support for importing custom sounds will be included. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsv-eY-QQl">
-                                        <rect key="frame" x="0.0" y="411" width="382" height="41"/>
+                                        <rect key="frame" x="0.0" y="240" width="382" height="80"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="5. If you are recording something and you do not hear a playback. Make sure your phones volume is not muted. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCZ-1j-15y">
-                                        <rect key="frame" x="0.0" y="541" width="382" height="41"/>
+                                        <rect key="frame" x="0.0" y="320" width="382" height="80"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -438,7 +440,6 @@
                         <color key="backgroundColor" red="0.96862745098039216" green="0.92156862745098034" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nAk-Ir-a3o" firstAttribute="trailing" secondItem="N0z-Rx-6g7" secondAttribute="trailing" constant="10" id="GGN-ZV-2bd"/>
-                            <constraint firstItem="nAk-Ir-a3o" firstAttribute="bottom" secondItem="N0z-Rx-6g7" secondAttribute="bottom" constant="20" id="Q7q-ZE-DqI"/>
                             <constraint firstItem="54z-Yk-nBC" firstAttribute="leading" secondItem="nAk-Ir-a3o" secondAttribute="leading" constant="16" id="fIm-E5-diI"/>
                             <constraint firstItem="N0z-Rx-6g7" firstAttribute="leading" secondItem="nAk-Ir-a3o" secondAttribute="leading" constant="10" id="fSv-oZ-cTv"/>
                             <constraint firstItem="54z-Yk-nBC" firstAttribute="top" secondItem="nAk-Ir-a3o" secondAttribute="top" constant="16" id="mpz-GG-ITN"/>
@@ -454,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4o-Bs-4IG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184.375" y="-591.25"/>
+            <point key="canvasLocation" x="2184.057971014493" y="-591.84782608695662"/>
         </scene>
         <!--Delete-->
         <scene sceneID="wjD-Bj-yBV">
@@ -464,14 +465,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="dOH-9X-yif">
-                                <rect key="frame" x="5" y="49" width="404" height="604"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dOH-9X-yif">
+                                <rect key="frame" x="5" y="49" width="404" height="559"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qFx-Y4-wBj">
-                                        <rect key="frame" x="0.0" y="0.0" width="404" height="106.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="110.33333333333333"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfh-A9-Pcu" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="106.33333333333333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=""/>
@@ -480,7 +481,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pB3-82-Sbx" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -489,7 +490,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNR-iu-yQO" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="106.33333333333333"/>
+                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -498,7 +499,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iz-bJ-ohP" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title=""/>
@@ -509,10 +510,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Mis-84-2Gi">
-                                        <rect key="frame" x="0.0" y="124.33333333333334" width="404" height="106.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="112.33333333333334" width="404" height="110"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55H-aI-wTE" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="106.33333333333333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -521,7 +522,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IO-cc-rxp" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -530,7 +531,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eU-qX-01I" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="106.33333333333333"/>
+                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -539,7 +540,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nI-jr-xR5" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -550,10 +551,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="JpJ-5f-PQu">
-                                        <rect key="frame" x="0.0" y="248.66666666666666" width="404" height="106.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="224.33333333333334" width="404" height="110.33333333333334"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twy-99-y5T" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="106.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -562,7 +563,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azD-80-5bd" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="106.66666666666667"/>
+                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -571,7 +572,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XH9-6Q-0qx" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="106.66666666666667"/>
+                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -580,7 +581,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exG-gi-Mwm" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="106.66666666666667"/>
+                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -591,10 +592,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WNA-Mq-y9M">
-                                        <rect key="frame" x="0.0" y="373.33333333333331" width="404" height="106.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="336.66666666666669" width="404" height="110"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTv-WV-Qgj" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="106.33333333333333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -603,7 +604,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKD-DW-Cgd" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -612,7 +613,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff3-Pd-sKU" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="106.33333333333333"/>
+                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -621,7 +622,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOs-bN-R6M" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="110"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -632,10 +633,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Lpo-v0-Ftb">
-                                        <rect key="frame" x="0.0" y="497.66666666666657" width="404" height="106.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="448.66666666666669" width="404" height="110.33333333333331"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8h-Z8-ze0" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="106.33333333333333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -644,7 +645,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1O-oL-cPx" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="101.66666666666669" y="0.0" width="99.333333333333314" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -653,7 +654,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7c-Qw-ez7" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="106.33333333333333"/>
+                                                <rect key="frame" x="203" y="0.0" width="99.666666666666686" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -662,7 +663,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tG-1X-ih2" customClass="DeleteBtns" customModule="SoundPad" customModuleProvider="target">
-                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="106.33333333333333"/>
+                                                <rect key="frame" x="304.66666666666669" y="0.0" width="99.333333333333314" height="110.33333333333333"/>
                                                 <color key="backgroundColor" red="1" green="0.3254451538" blue="0.31752906889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
@@ -675,10 +676,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="os8-f6-Sze">
-                                <rect key="frame" x="5" y="664" width="404" height="58"/>
+                                <rect key="frame" x="5" y="613" width="404" height="58"/>
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="kmm-9J-6vH"/>
+                                    <constraint firstAttribute="height" constant="58" id="tGe-Ur-rVM"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete All Recordings">
@@ -692,26 +693,14 @@
                         <viewLayoutGuide key="safeArea" id="wCv-0z-8sp"/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.92156862745098034" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="wCv-0z-8sp" firstAttribute="bottom" secondItem="os8-f6-Sze" secondAttribute="bottom" constant="14" id="9vk-2N-dXU"/>
-                            <constraint firstItem="os8-f6-Sze" firstAttribute="leading" secondItem="wCv-0z-8sp" secondAttribute="leading" constant="5" id="FFA-cr-kac"/>
-                            <constraint firstItem="wCv-0z-8sp" firstAttribute="trailing" secondItem="os8-f6-Sze" secondAttribute="trailing" constant="5" id="Gtw-qP-q6A"/>
-                            <constraint firstItem="dOH-9X-yif" firstAttribute="top" secondItem="wCv-0z-8sp" secondAttribute="top" constant="5" id="YlZ-Mk-E98"/>
-                            <constraint firstItem="dOH-9X-yif" firstAttribute="leading" secondItem="wCv-0z-8sp" secondAttribute="leading" constant="5" id="jkO-PP-fAP"/>
-                            <constraint firstItem="wCv-0z-8sp" firstAttribute="trailing" secondItem="dOH-9X-yif" secondAttribute="trailing" constant="5" id="loX-7P-ruh"/>
-                            <constraint firstItem="wCv-0z-8sp" firstAttribute="trailing" secondItem="os8-f6-Sze" secondAttribute="trailing" constant="5" id="ogb-ye-aa0"/>
-                            <constraint firstItem="os8-f6-Sze" firstAttribute="top" secondItem="dOH-9X-yif" secondAttribute="bottom" constant="11" id="qPZ-2k-5p3"/>
-                            <constraint firstItem="wCv-0z-8sp" firstAttribute="trailing" secondItem="dOH-9X-yif" secondAttribute="trailing" constant="5" id="vwG-B8-Xmf"/>
+                            <constraint firstItem="wCv-0z-8sp" firstAttribute="trailing" secondItem="os8-f6-Sze" secondAttribute="trailing" constant="5" id="Dkd-La-jRB"/>
+                            <constraint firstItem="dOH-9X-yif" firstAttribute="leading" secondItem="wCv-0z-8sp" secondAttribute="leading" constant="5" id="FbN-sr-zwv"/>
+                            <constraint firstItem="os8-f6-Sze" firstAttribute="top" secondItem="dOH-9X-yif" secondAttribute="bottom" constant="5" id="gJ1-8M-NGg"/>
+                            <constraint firstItem="dOH-9X-yif" firstAttribute="top" secondItem="wCv-0z-8sp" secondAttribute="top" constant="5" id="ldc-eO-iJf"/>
+                            <constraint firstAttribute="trailing" secondItem="dOH-9X-yif" secondAttribute="trailing" constant="5" id="q1P-d1-nYI"/>
+                            <constraint firstItem="os8-f6-Sze" firstAttribute="leading" secondItem="wCv-0z-8sp" secondAttribute="leading" constant="5" id="qrg-j5-x5f"/>
+                            <constraint firstItem="wCv-0z-8sp" firstAttribute="bottom" secondItem="os8-f6-Sze" secondAttribute="bottom" constant="65" id="wdl-Ou-OSy"/>
                         </constraints>
-                        <variation key="heightClass=compact-widthClass=compact">
-                            <mask key="constraints">
-                                <exclude reference="Gtw-qP-q6A"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=regular">
-                            <mask key="constraints">
-                                <exclude reference="vwG-B8-Xmf"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Delete" id="hoF-BI-YM5"/>
                     <connections>
@@ -740,7 +729,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8dP-pU-l4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2986.875" y="-591.25"/>
+            <point key="canvasLocation" x="2985.507246376812" y="-591.84782608695662"/>
         </scene>
         <!--DisabledVC-->
         <scene sceneID="TqJ-mn-bsA">
