@@ -117,9 +117,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         // In this case, we instantiate the banner with desired ad size.
         let bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.delegate = self
-        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
-        print("************ ",getIDFA())
-        bannerView.load(GADRequest())
         bannerView.rootViewController = self
 //        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
         addBannerViewToView(bannerView)
@@ -1100,26 +1097,15 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
     }
     
     func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
+//        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
         bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
+        bannerView.load(GADRequest())
+        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
         view.addSubview(bannerView)
-        
-//      view.addConstraints(
-//        [NSLayoutConstraint(item: bannerView,
-//                            attribute: .bottom,
-//                            relatedBy: .equal,
-//                            toItem: view.safeAreaLayoutGuide.bottomAnchor,
-//                            attribute: .top,
-//                            multiplier: 1,
-//                            constant: 0),
-//         NSLayoutConstraint(item: bannerView,
-//                            attribute: .centerX,
-//                            relatedBy: .equal,
-//                            toItem: view,
-//                            attribute: .centerX,
-//                            multiplier: 1,
-//                            constant: 0)
-//        ])
+        view.addConstraints([
+            NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: self.view.safeAreaLayoutGuide,attribute: .centerX,multiplier: 1,constant: 0)])
      }
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
