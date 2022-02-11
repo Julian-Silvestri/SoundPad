@@ -67,6 +67,7 @@ class DeleteVC: UIViewController,GADBannerViewDelegate {
         let bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.delegate = self
         bannerView.rootViewController = self
+        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
 //        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
         addBannerViewToView(bannerView)
     }
@@ -320,7 +321,6 @@ class DeleteVC: UIViewController,GADBannerViewDelegate {
     func addBannerViewToView(_ bannerView: GADBannerView) {
 //        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
         bannerView.load(GADRequest())
         bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
         view.addSubview(bannerView)

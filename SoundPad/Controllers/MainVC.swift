@@ -89,7 +89,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
     
     let playSoundBtnClr = #colorLiteral(red: 0.6, green: 0.7607843137, blue: 0.3019607843, alpha: 1)
     
-    let adSize = GADAdSizeFromCGSize(CGSize(width: 300, height: 50))
+    let adSize = GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,8 +118,14 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         let bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.delegate = self
         bannerView.rootViewController = self
+        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.load(GADRequest())
 //        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
         addBannerViewToView(bannerView)
+        print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
+        print("**(&*(*&(& \(ASIdentifierManager.shared().advertisingIdentifier)")
+        
 
     }
     
@@ -1099,8 +1105,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
     func addBannerViewToView(_ bannerView: GADBannerView) {
 //        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
-        bannerView.load(GADRequest())
         bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
         view.addSubview(bannerView)
         view.addConstraints([
@@ -1145,7 +1149,6 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
             }
         }
         
-        print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
 
         return ASIdentifierManager.shared().advertisingIdentifier.uuidString
     }
