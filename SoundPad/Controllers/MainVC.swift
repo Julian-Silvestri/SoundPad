@@ -116,6 +116,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         btn20.tag = 20
         // In this case, we instantiate the banner with desired ad size.
         let bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        
         bannerView.delegate = self
         bannerView.rootViewController = self
         bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"

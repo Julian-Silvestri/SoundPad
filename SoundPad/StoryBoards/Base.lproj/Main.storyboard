@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jwv-5E-Wkh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HFu-7j-m13">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -765,6 +766,25 @@
             </objects>
             <point key="canvasLocation" x="2184" y="136"/>
         </scene>
+        <!--Permission RequestVC-->
+        <scene sceneID="KVc-qy-fuK">
+            <objects>
+                <viewController id="HFu-7j-m13" customClass="PermissionRequestVC" customModule="SoundPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DDI-hX-ccQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="NvT-ZS-90B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="Jwv-5E-Wkh" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="OZQ-Fi-jhK"/>
+                        <segue destination="ScX-Hr-vYm" kind="presentation" identifier="disabledPermission" modalPresentationStyle="fullScreen" id="coC-B8-Hy3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I3U-LB-O7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317" y="810"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8dF-3G-s2U">
             <objects>
@@ -790,6 +810,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvt-w5-fs5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.75" y="136.25"/>
+        </scene>
+        <!--Disabled PermissionsVC-->
+        <scene sceneID="mwX-8b-v6K">
+            <objects>
+                <viewController id="ScX-Hr-vYm" customClass="DisabledPermissionsVC" customModule="SoundPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eAE-78-Z5C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bq-d9-a2B">
+                                <rect key="frame" x="80" y="212.66666666666663" width="254" height="311"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="311" id="23K-9O-t16"/>
+                                    <constraint firstAttribute="width" constant="254" id="YIG-pN-Eea"/>
+                                </constraints>
+                                <string key="text">This app is using personalized ads to bring you a better experience as well as to support development. Please head over to your iphone settings and enable tracking for SoundPad.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q1t-gv-7dA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9bq-d9-a2B" firstAttribute="centerY" secondItem="eAE-78-Z5C" secondAttribute="centerY" id="UOh-lL-8yz"/>
+                            <constraint firstItem="9bq-d9-a2B" firstAttribute="centerX" secondItem="eAE-78-Z5C" secondAttribute="centerX" id="dMB-fV-XCi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N4Q-Of-RZ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="518.84057971014499" y="824.18478260869574"/>
         </scene>
     </scenes>
     <designables>
@@ -916,5 +968,8 @@
     </designables>
     <resources>
         <image name="soundPadIcon" width="1024" height="1024"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
