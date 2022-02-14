@@ -119,8 +119,9 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         
         bannerView.delegate = self
         bannerView.rootViewController = self
-        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
+        
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.load(GADRequest())
 //        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
         addBannerViewToView(bannerView)

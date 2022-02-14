@@ -7,11 +7,9 @@
 
 import UIKit
 import CoreData
-import GoogleMobileAds
-import AppTrackingTransparency
-import AdSupport
 
-class DeleteVC: UIViewController,GADBannerViewDelegate {
+
+class DeleteVC: UIViewController {
     
     @IBOutlet weak var btn1: DeleteBtns!
     @IBOutlet weak var btn2: DeleteBtns!
@@ -64,12 +62,7 @@ class DeleteVC: UIViewController,GADBannerViewDelegate {
         self.btn18.tag = 18
         self.btn19.tag = 19
         self.btn20.tag = 20
-        let bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.delegate = self
-        bannerView.rootViewController = self
-        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
-//        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
-        addBannerViewToView(bannerView)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -318,16 +311,7 @@ class DeleteVC: UIViewController,GADBannerViewDelegate {
         self.btn20.isUserInteractionEnabled = false
     }
     
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-//        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.load(GADRequest())
-        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
-        view.addSubview(bannerView)
-        view.addConstraints([
-            NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: self.view.safeAreaLayoutGuide,attribute: .centerX,multiplier: 1,constant: 0)])
-     }
+
     
 
 }
