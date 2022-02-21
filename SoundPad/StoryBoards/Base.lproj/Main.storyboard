@@ -234,7 +234,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" spacing="4"/>
                             </stackView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRm-21-QZq" customClass="RecordingView" customModule="SoundPad" customModuleProvider="target">
-                                <rect key="frame" x="15" y="124" width="384" height="604"/>
+                                <rect key="frame" x="15" y="124" width="384" height="559"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEP-ed-ifT">
                                         <rect key="frame" x="8" y="472" width="368" height="67"/>
@@ -258,9 +258,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.92156862745098034" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="qEP-ed-ifT" secondAttribute="bottom" constant="65" id="4FX-va-io5"/>
+                                    <constraint firstAttribute="bottom" secondItem="qEP-ed-ifT" secondAttribute="bottom" constant="20" id="4FX-va-io5"/>
                                     <constraint firstItem="3LB-fY-Px9" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="8" id="6cM-5Q-QTB"/>
-                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="centerY" secondItem="XRm-21-QZq" secondAttribute="centerY" id="7sj-st-sot"/>
+                                    <constraint firstItem="3LB-fY-Px9" firstAttribute="centerY" secondItem="XRm-21-QZq" secondAttribute="centerY" constant="22.5" id="7sj-st-sot"/>
                                     <constraint firstAttribute="trailing" secondItem="3LB-fY-Px9" secondAttribute="trailing" constant="8" id="Bn1-EL-qIx"/>
                                     <constraint firstAttribute="trailing" secondItem="3LB-fY-Px9" secondAttribute="trailing" constant="4" id="H5P-gW-XBa"/>
                                     <constraint firstItem="qEP-ed-ifT" firstAttribute="leading" secondItem="XRm-21-QZq" secondAttribute="leading" constant="8" id="MLv-c3-bSU"/>
@@ -298,7 +298,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.92156862745098034" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XRm-21-QZq" secondAttribute="bottom" constant="8" id="08A-oN-LOx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XRm-21-QZq" secondAttribute="bottom" constant="53" id="08A-oN-LOx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4XJ-DD-GzX" secondAttribute="trailing" constant="16" id="1ZV-7t-Eov"/>
                             <constraint firstItem="SbO-cl-5u2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="3G7-NG-dyk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SbO-cl-5u2" secondAttribute="trailing" constant="16.5" id="3f6-Lx-VOO"/>
@@ -373,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.231884057971" y="134.5108695652174"/>
+            <point key="canvasLocation" x="1134.7826086956522" y="134.5108695652174"/>
         </scene>
         <!--Help-->
         <scene sceneID="77U-Fz-7AN">

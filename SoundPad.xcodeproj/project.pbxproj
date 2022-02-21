@@ -11,9 +11,16 @@
 		081C4F802785D4D5007E2485 /* CountDownLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C4F7F2785D4D5007E2485 /* CountDownLabels.swift */; };
 		081C4F822788B819007E2485 /* DeleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C4F812788B819007E2485 /* DeleteVC.swift */; };
 		081C4F842788B8F8007E2485 /* DeleteBtns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C4F832788B8F8007E2485 /* DeleteBtns.swift */; };
+		0832712827BB05D900AEC198 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0832712727BB05D900AEC198 /* GoogleAppMeasurementIdentitySupport.xcframework */; };
+		0832713F27BB062F00AEC198 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0832713727BB061600AEC198 /* FBLPromises.framework */; };
+		0832714227BB064100AEC198 /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0832712B27BB05FA00AEC198 /* GoogleAppMeasurement.xcframework */; };
+		0832714527BB065600AEC198 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 088D190C27BAB3BD003ACF45 /* GoogleMobileAds.xcframework */; };
+		0832714827BB066C00AEC198 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0832712F27BB060600AEC198 /* GoogleUtilities.framework */; };
+		0832714B27BB067C00AEC198 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0832712527BB059200AEC198 /* iAd.framework */; };
+		0832714E27BB068900AEC198 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0832713327BB060D00AEC198 /* nanopb.framework */; };
+		0832715127BB06A200AEC198 /* Pods_SoundPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D86533EEC02758686FFC58 /* Pods_SoundPad.framework */; };
+		0832715427BB06B000AEC198 /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0832713B27BB061F00AEC198 /* UserMessagingPlatform.xcframework */; };
 		0864BDBB27765B260085B527 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0864BDBA27765B260085B527 /* CustomButton.swift */; };
-		088D190927BAB126003ACF45 /* Pods_SoundPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D86533EEC02758686FFC58 /* Pods_SoundPad.framework */; };
-		088D190E27BAB814003ACF45 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 088D190C27BAB3BD003ACF45 /* GoogleMobileAds.xcframework */; };
 		088D191127BAB995003ACF45 /* PermissionRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D191027BAB995003ACF45 /* PermissionRequestVC.swift */; };
 		088D191327BAB9FD003ACF45 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D191227BAB9FD003ACF45 /* NotificationHandler.swift */; };
 		088D191527BABABF003ACF45 /* DisabledPermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D191427BABABF003ACF45 /* DisabledPermissionsVC.swift */; };
@@ -55,6 +62,13 @@
 		081C4F7F2785D4D5007E2485 /* CountDownLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownLabels.swift; sourceTree = "<group>"; };
 		081C4F812788B819007E2485 /* DeleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteVC.swift; sourceTree = "<group>"; };
 		081C4F832788B8F8007E2485 /* DeleteBtns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBtns.swift; sourceTree = "<group>"; };
+		0832712527BB059200AEC198 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		0832712727BB05D900AEC198 /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
+		0832712B27BB05FA00AEC198 /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		0832712F27BB060600AEC198 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0832713327BB060D00AEC198 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0832713727BB061600AEC198 /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0832713B27BB061F00AEC198 /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UserMessagingPlatform.xcframework; path = Pods/GoogleUserMessagingPlatform/Frameworks/Release/UserMessagingPlatform.xcframework; sourceTree = "<group>"; };
 		0864BDBA27765B260085B527 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		088D190C27BAB3BD003ACF45 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		088D191027BAB995003ACF45 /* PermissionRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestVC.swift; sourceTree = "<group>"; };
@@ -88,8 +102,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				088D190927BAB126003ACF45 /* Pods_SoundPad.framework in Frameworks */,
-				088D190E27BAB814003ACF45 /* GoogleMobileAds.xcframework in Frameworks */,
+				0832714827BB066C00AEC198 /* GoogleUtilities.framework in Frameworks */,
+				0832714227BB064100AEC198 /* GoogleAppMeasurement.xcframework in Frameworks */,
+				0832712827BB05D900AEC198 /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
+				0832715127BB06A200AEC198 /* Pods_SoundPad.framework in Frameworks */,
+				0832714E27BB068900AEC198 /* nanopb.framework in Frameworks */,
+				0832713F27BB062F00AEC198 /* FBLPromises.framework in Frameworks */,
+				0832714B27BB067C00AEC198 /* iAd.framework in Frameworks */,
+				0832715427BB06B000AEC198 /* UserMessagingPlatform.xcframework in Frameworks */,
+				0832714527BB065600AEC198 /* GoogleMobileAds.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +241,13 @@
 		C13689E90AAB461B1EFB1D55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0832713B27BB061F00AEC198 /* UserMessagingPlatform.xcframework */,
+				0832713727BB061600AEC198 /* FBLPromises.framework */,
+				0832713327BB060D00AEC198 /* nanopb.framework */,
+				0832712F27BB060600AEC198 /* GoogleUtilities.framework */,
+				0832712B27BB05FA00AEC198 /* GoogleAppMeasurement.xcframework */,
+				0832712727BB05D900AEC198 /* GoogleAppMeasurementIdentitySupport.xcframework */,
+				0832712527BB059200AEC198 /* iAd.framework */,
 				088D190C27BAB3BD003ACF45 /* GoogleMobileAds.xcframework */,
 				E3D86533EEC02758686FFC58 /* Pods_SoundPad.framework */,
 			);
@@ -321,8 +349,8 @@
 			projectRoot = "";
 			targets = (
 				08BE21D42774FDEA001956CD /* SoundPad */,
-				08BE21ED2774FDEC001956CD /* SoundPadTests */,
 				08BE21F72774FDEC001956CD /* SoundPadUITests */,
+				08BE21ED2774FDEC001956CD /* SoundPadTests */,
 			);
 		};
 /* End PBXProject section */
@@ -602,7 +630,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SoundPad/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will be using your microphone to record audio. These recordings are saved locally on your phone and will not be distributed by this application or any third party. ";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app is using goolge ads to bring you more relevant ads";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -614,11 +642,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"c++\"",
-				);
+				MARKETING_VERSION = 1.1.6;
+				OTHER_LDFLAGS = "-ObjC ";
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -640,7 +665,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SoundPad/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will be using your microphone to record audio. These recordings are saved locally on your phone and will not be distributed by this application or any third party. ";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app is using goolge ads to bring you more relevant ads";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -652,66 +677,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreMedia\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"CoreVideo\"",
-					"-framework",
-					"\"FBLPromises\"",
-					"-framework",
-					"\"GoogleAppMeasurement\"",
-					"-framework",
-					"\"GoogleAppMeasurementIdentitySupport\"",
-					"-framework",
-					"\"GoogleMobileAds\"",
-					"-framework",
-					"\"GoogleUtilities\"",
-					"-framework",
-					"\"MediaPlayer\"",
-					"-framework",
-					"\"MessageUI\"",
-					"-framework",
-					"\"MobileCoreServices\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"WebKit\"",
-					"\"StoreKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UserMessagingPlatform\"",
-					"-framework",
-					"\"WebKit\"",
-					"-framework",
-					"\"nanopb\"",
-					"-weak_framework",
-					"\"AdSupport\"",
-					"-weak_framework",
-					"\"JavaScriptCore\"",
-					"-weak_framework",
-					"\"SafariServices\"",
-					"-weak_framework",
-				);
+				MARKETING_VERSION = 1.1.6;
+				OTHER_LDFLAGS = "-ObjC ";
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

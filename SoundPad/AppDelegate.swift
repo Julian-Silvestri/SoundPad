@@ -16,7 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        
+//        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        let ads = GADMobileAds.sharedInstance()
+        ads.start { status in
+            
+            // Optional: Log each adapter's initialization latency.
+            let adapterStatuses = status.adapterStatusesByClassName
+            for adapter in adapterStatuses {
+            let adapterStatus = adapter.value
+            print("Adapter Name: %@, Description: %@, Latency: %f", adapter.key,
+                  adapterStatus.description, adapterStatus.latency)
+            }
+            
+        }
+        
         return true
     }
 

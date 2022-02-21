@@ -90,8 +90,32 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
     let playSoundBtnClr = #colorLiteral(red: 0.6, green: 0.7607843137, blue: 0.3019607843, alpha: 1)
     
     let adSize = GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
+    
+    var banner: GADBannerView!
+    
+//    private var banner: GADBannerView = {
+//        let banner = GADBannerView()
+//        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        //banner.load(GADRequest())
+//        return banner
+//    }()
+    
+    //        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559" //old id
+//            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //test id
+    //        bannerView.adUnitID = "ca-app-pub-2779669386425011/8414968064" //new id
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.banner = GADBannerView(adSize: self.adSize)
+        self.banner.adUnitID = "ca-app-pub-2779669386425011/8414968064"
+        self.banner.rootViewController = self
+        self.banner.delegate = self
+        self.banner.load(GADRequest())
+//        view.addSubview(banner)
+        self.addBannerViewToView(self.banner)
+        
+        
         
         self.recordingSession = AVAudioSession.sharedInstance()
         btn1.tag = 1
@@ -115,20 +139,18 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         btn19.tag = 19
         btn20.tag = 20
         // In this case, we instantiate the banner with desired ad size.
-        let bannerView = GADBannerView(adSize: GADAdSizeBanner)
+//        bannerView = GADBannerView(adSize: adSize)
+//        bannerView.delegate = self
+//        bannerView.rootViewController = self
+
         
-        bannerView.delegate = self
-        bannerView.rootViewController = self
-//        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
-        
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.load(GADRequest())
+//        view.addSubview(banner)
+//        bannerView.load(GADRequest())
 //        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
-        addBannerViewToView(bannerView)
+//        addBannerViewToView(bannerView)
+        print("AD SIZE = \(banner.adSize)")
         print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
         print("**(&*(*&(& \(ASIdentifierManager.shared().advertisingIdentifier)")
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -1105,21 +1127,25 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
     }
     
     func addBannerViewToView(_ bannerView: GADBannerView) {
-//        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
+        bannerView.frame = CGRect(x: 0, y: 0, width: 320, height: 50)
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
+        print("AD SIZE IN FUNC =" ,bannerView.adSize)
+//        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
         view.addSubview(bannerView)
         view.addConstraints([
             NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: self.view.safeAreaLayoutGuide,attribute: .centerX,multiplier: 1,constant: 0)])
+       
      }
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
+        print("bannerViewDidReceiveAd")
+        print("Banner adapter class name: \(String(describing: bannerView.responseInfo?.adNetworkClassName))")
     }
 
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        print("BANNER FAIL - \(error)")
+        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
     }
 
     func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {

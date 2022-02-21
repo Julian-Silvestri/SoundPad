@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>GADIsAdManagerApp</key>
-	<true/>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This app is using goolge ads to bring you more relevant ads</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-2779669386425011~8834930618</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
