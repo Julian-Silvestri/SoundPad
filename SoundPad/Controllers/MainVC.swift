@@ -8,13 +8,14 @@
 import UIKit
 import AVFoundation
 import CoreData
-import GoogleMobileAds
+//import GoogleMobileAds
 import AppTrackingTransparency
 import AdSupport
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GADBannerViewDelegate  {
+//GADBannerViewDelegate
+class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate  {
 
     //CUSTOM BTNS
     @IBOutlet weak var btn1: CustomButton!
@@ -89,7 +90,7 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
     
     let playSoundBtnClr = #colorLiteral(red: 0.6, green: 0.7607843137, blue: 0.3019607843, alpha: 1)
     
-    let adSize = GADAdSizeFromCGSize(CGSize(width: 300, height: 50))
+//    let adSize = GADAdSizeFromCGSize(CGSize(width: 300, height: 50))
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -115,11 +116,11 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         btn19.tag = 19
         btn20.tag = 20
         // In this case, we instantiate the banner with desired ad size.
-        let bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.delegate = self
-        bannerView.rootViewController = self
+//        let bannerView = GADBannerView(adSize: GADAdSizeBanner)
+//        bannerView.delegate = self
+//        bannerView.rootViewController = self
 //        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
-        addBannerViewToView(bannerView)
+//        addBannerViewToView(bannerView)
 
     }
     
@@ -131,6 +132,10 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
     
     //MARK: Save Core Data
     func saveData(sender: Int, fileName: String) {
+//        
+//        guard let context = appDelegate?.persistentContainer.viewContext else {
+//            return
+//        }
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let sounds = Sounds(context: managedContext)
@@ -205,15 +210,15 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         }
     }
     
-    func askToLoopAudioBeforePlay(sender: UIButton){
-        basicAlert(vc: self, titleOfAlert: "Lopp this track?", messageOfAlert: "Would you like to loop this track?", sender: sender, completionHandler: {success in
-            if success == true {
-                self.playAudio(sender: sender, repeatTrack: true)
-            } else {
-                self.playAudio(sender: sender, repeatTrack: false)
-            }
-        })
-    }
+//    func askToLoopAudioBeforePlay(sender: UIButton){
+//        basicAlert(vc: self, titleOfAlert: "Lopp this track?", messageOfAlert: "Would you like to loop this track?", sender: sender, completionHandler: {success in
+//            if success == true {
+//                self.playAudio(sender: sender, repeatTrack: true)
+//            } else {
+//                self.playAudio(sender: sender, repeatTrack: false)
+//            }
+//        })
+//    }
     
     //MARK: Play Audio
     func playAudio(sender: UIButton, repeatTrack: Bool) {
@@ -661,8 +666,8 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
         let documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         
         if sender.backgroundColor == playSoundBtnClr {
-            askToLoopAudioBeforePlay(sender: sender)
-            //playAudio(sender: sender , repeatTrack: true)
+//            askToLoopAudioBeforePlay(sender: sender)
+            playAudio(sender: sender , repeatTrack: true)
         } else if sender.backgroundColor == UIColor.orange {
             stopPlayer(sender: sender)
         } else {
@@ -1095,60 +1100,60 @@ class Main: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate,GAD
             // Write code to play next audio.
         }
     }
+//    
+//    func addBannerViewToView(_ bannerView: GADBannerView) {
+////        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
+//        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
+//        bannerView.load(GADRequest())
+//        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
+//        view.addSubview(bannerView)
+//        view.addConstraints([
+//            NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
+//            NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: self.view.safeAreaLayoutGuide,attribute: .centerX,multiplier: 1,constant: 0)])
+//     }
+//    
+//    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+//      print("bannerViewDidReceiveAd")
+//    }
+//
+//    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+//    }
+//
+//    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+//      print("bannerViewDidRecordImpression")
+//    }
+//
+//    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillPresentScreen")
+//    }
+//
+//    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewWillDIsmissScreen")
+//    }
+//
+//    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+//      print("bannerViewDidDismissScreen")
+//    }
+
     
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-//        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
-        bannerView.load(GADRequest())
-        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
-        view.addSubview(bannerView)
-        view.addConstraints([
-            NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: self.view.safeAreaLayoutGuide,attribute: .centerX,multiplier: 1,constant: 0)])
-     }
-    
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
-    }
-
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
-    }
-
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
-    }
-
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDIsmissScreen")
-    }
-
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
-    }
-
-    
-    func getIDFA() -> String? {
-        // Check whether advertising tracking is enabled
-        if #available(iOS 14, *) {
-            if ATTrackingManager.trackingAuthorizationStatus != ATTrackingManager.AuthorizationStatus.authorized  {
-                return nil
-            }
-        } else {
-            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled == false {
-                return nil
-            }
-        }
-        
-        print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
-
-        return ASIdentifierManager.shared().advertisingIdentifier.uuidString
-    }
+//    func getIDFA() -> String? {
+//        // Check whether advertising tracking is enabled
+//        if #available(iOS 14, *) {
+//            if ATTrackingManager.trackingAuthorizationStatus != ATTrackingManager.AuthorizationStatus.authorized  {
+//                return nil
+//            }
+//        } else {
+//            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled == false {
+//                return nil
+//            }
+//        }
+//        
+//        print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
+//
+//        return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+//    }
 }
 
 //

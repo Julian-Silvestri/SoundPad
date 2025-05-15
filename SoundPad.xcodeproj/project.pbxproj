@@ -26,7 +26,6 @@
 		08BE21FD2774FDEC001956CD /* SoundPadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21FC2774FDEC001956CD /* SoundPadUITests.swift */; };
 		08BE21FF2774FDEC001956CD /* SoundPadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BE21FE2774FDEC001956CD /* SoundPadUITestsLaunchTests.swift */; };
 		08EB1991277A4B2400837684 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB1990277A4B2300837684 /* Model.swift */; };
-		62E95A872B084E474EA0FE73 /* Pods_SoundPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D86533EEC02758686FFC58 /* Pods_SoundPad.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,9 +69,6 @@
 		08BE21FC2774FDEC001956CD /* SoundPadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPadUITests.swift; sourceTree = "<group>"; };
 		08BE21FE2774FDEC001956CD /* SoundPadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPadUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		08EB1990277A4B2300837684 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		41D5DBCE0DEC25B5279F7B2B /* Pods-SoundPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundPad.debug.xcconfig"; path = "Target Support Files/Pods-SoundPad/Pods-SoundPad.debug.xcconfig"; sourceTree = "<group>"; };
-		65E1673D7C5D5988ED48E9B6 /* Pods-SoundPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundPad.release.xcconfig"; path = "Target Support Files/Pods-SoundPad/Pods-SoundPad.release.xcconfig"; sourceTree = "<group>"; };
-		E3D86533EEC02758686FFC58 /* Pods_SoundPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E95A872B084E474EA0FE73 /* Pods_SoundPad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,8 +142,6 @@
 				08BE21D72774FDEA001956CD /* SoundPad */,
 				08BE21FB2774FDEC001956CD /* SoundPadUITests */,
 				08BE21D62774FDEA001956CD /* Products */,
-				A5AE4146A3BB23556B0F2C40 /* Pods */,
-				C13689E90AAB461B1EFB1D55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,23 +189,6 @@
 			path = SoundPadUITests;
 			sourceTree = "<group>";
 		};
-		A5AE4146A3BB23556B0F2C40 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				41D5DBCE0DEC25B5279F7B2B /* Pods-SoundPad.debug.xcconfig */,
-				65E1673D7C5D5988ED48E9B6 /* Pods-SoundPad.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		C13689E90AAB461B1EFB1D55 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E3D86533EEC02758686FFC58 /* Pods_SoundPad.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,11 +196,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08BE22022774FDEC001956CD /* Build configuration list for PBXNativeTarget "SoundPad" */;
 			buildPhases = (
-				89AEB3A047BF2F9A8A7DAB63 /* [CP] Check Pods Manifest.lock */,
 				08BE21D12774FDEA001956CD /* Sources */,
 				08BE21D22774FDEA001956CD /* Frameworks */,
 				08BE21D32774FDEA001956CD /* Resources */,
-				958A50297230B97EF4CC224E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -340,48 +314,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		89AEB3A047BF2F9A8A7DAB63 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SoundPad-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		958A50297230B97EF4CC224E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SoundPad/Pods-SoundPad-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SoundPad/Pods-SoundPad-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SoundPad/Pods-SoundPad-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08BE21D12774FDEA001956CD /* Sources */ = {
@@ -576,12 +508,11 @@
 		};
 		08BE22032774FDEC001956CD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41D5DBCE0DEC25B5279F7B2B /* Pods-SoundPad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SoundPad/Info.plist;
@@ -597,7 +528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -609,12 +540,11 @@
 		};
 		08BE22042774FDEC001956CD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65E1673D7C5D5988ED48E9B6 /* Pods-SoundPad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SoundPad/Info.plist;
@@ -630,7 +560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.4;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.SoundPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

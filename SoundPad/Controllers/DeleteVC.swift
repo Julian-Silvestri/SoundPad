@@ -7,11 +7,11 @@
 
 import UIKit
 import CoreData
-import GoogleMobileAds
+//import GoogleMobileAds
 import AppTrackingTransparency
 import AdSupport
-
-class DeleteVC: UIViewController,GADBannerViewDelegate {
+//,GADBannerViewDelegate
+class DeleteVC: UIViewController {
     
     @IBOutlet weak var btn1: DeleteBtns!
     @IBOutlet weak var btn2: DeleteBtns!
@@ -64,11 +64,11 @@ class DeleteVC: UIViewController,GADBannerViewDelegate {
         self.btn18.tag = 18
         self.btn19.tag = 19
         self.btn20.tag = 20
-        let bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.delegate = self
-        bannerView.rootViewController = self
+//        let bannerView = GADBannerView(adSize: GADAdSizeBanner)
+//        bannerView.delegate = self
+//        bannerView.rootViewController = self
 //        print("Google Mobile Ads SDK version: \(GADMobileAds.sharedInstance().sdkVersion)")
-        addBannerViewToView(bannerView)
+//        addBannerViewToView(bannerView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -242,34 +242,6 @@ class DeleteVC: UIViewController,GADBannerViewDelegate {
 
     }
     
-//    func basicAlert(titleOfAlert: String, messageOfAlert: String, sender: UIButton, completionHandler: @escaping(Bool) ->Void){
-//        let alert = UIAlertController(title: titleOfAlert, message: messageOfAlert , preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-//            switch action.style{
-//                case .default:
-////                    print("default")
-//                    self.checkRecordings()
-//                    completionHandler(true)
-//                default:
-//                    return
-////                    print("error")
-//
-//            }
-//        }))
-//        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {action in
-//            switch action.style{
-//                case .default:
-//                    completionHandler(false)
-//                    return
-//                case .cancel:
-//                    return
-//                default:
-//                    return
-//            }
-//        }))
-//        self.present(alert, animated: true, completion: nil)
-//    }
-
     func enableBtns(){
         self.btn1.isUserInteractionEnabled = true
         self.btn2.isUserInteractionEnabled = true
@@ -317,17 +289,17 @@ class DeleteVC: UIViewController,GADBannerViewDelegate {
         self.btn20.isUserInteractionEnabled = false
     }
     
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-//        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
-        bannerView.load(GADRequest())
-        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
-        view.addSubview(bannerView)
-        view.addConstraints([
-            NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: self.view.safeAreaLayoutGuide,attribute: .centerX,multiplier: 1,constant: 0)])
-     }
-    
+//    func addBannerViewToView(_ bannerView: GADBannerView) {
+////        bannerView.frame = CGRect(x: 0, y: 0, width: 350, height: 50)
+//        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        bannerView.adUnitID = "ca-app-pub-2779669386425011/6891293559"
+//        bannerView.load(GADRequest())
+//        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width)
+//        view.addSubview(bannerView)
+//        view.addConstraints([
+//            NSLayoutConstraint(item: bannerView, attribute: .bottom, relatedBy: .lessThanOrEqual, toItem: self.view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0),
+//            NSLayoutConstraint(item: bannerView,attribute: .centerX,relatedBy: .equal,toItem: self.view.safeAreaLayoutGuide,attribute: .centerX,multiplier: 1,constant: 0)])
+//     }
+//    
 
 }
